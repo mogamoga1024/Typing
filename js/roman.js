@@ -19,6 +19,46 @@ function じ() {
 じ.prototype = Object.create(Char.prototype);
 じ.prototype.constructor = じ;
 
+function ぜ() {
+    Char.call(this);
+    this.expectRomanArray = [
+        ["z", "e"],
+    ];
+}
+
+ぜ.prototype = Object.create(Char.prototype);
+ぜ.prototype.constructor = ぜ;
+
+function た() {
+    Char.call(this);
+    this.expectRomanArray = [
+        ["t", "a"],
+    ];
+}
+
+た.prototype = Object.create(Char.prototype);
+た.prototype.constructor = た;
+
+function っ() {
+    Char.call(this);
+    this.expectRomanArray = [
+        ["x", "t", "u"],
+    ];
+}
+
+っ.prototype = Object.create(Char.prototype);
+っ.prototype.constructor = っ;
+
+function った() {
+    Char.call(this);
+    this.expectRomanArray = [
+        ["t", "t", "a"],
+    ];
+}
+
+った.prototype = Object.create(Char.prototype);
+った.prototype.constructor = った;
+
 function に() {
     Char.call(this);
     this.expectRomanArray = [
@@ -26,7 +66,7 @@ function に() {
     ];
     this.relatedCharArray = [
         "にゃ"
-    ]
+    ];
 }
 
 に.prototype = Object.create(Char.prototype);
@@ -37,6 +77,7 @@ function に() {
     if (result === ROMAN_NG) {
         if (this.nextChar !== null) {
             for (let i = 0; i < this.relatedCharArray.length; i++) {
+                // todo
                 if (this.constructor.name + this.nextChar.constructor.name !== this.relatedCharArray[i]) {
                     continue;
                 }
@@ -46,12 +87,16 @@ function に() {
                         break;
                     }
                     if (j === this.nextExpectRomanIndex - 1) {
-                        if (char.checkRoman(roman) === ROMAN_NG) {
+                        const result = char.checkRoman(roman);
+                        if (result === ROMAN_NG) {
                             return ROMAN_NG;
                         }
-                        else {
+                        else if (result === ROMAN_KEEP) {
                             char.nextChar = this.nextChar.nextChar;
                             return char;
+                        }
+                        else if (result === ROMAN_OK) {
+                            return this.nextChar.nextChar;
                         }
                     }
                 }
@@ -86,6 +131,16 @@ function ぴ() {
 
 ぴ.prototype = Object.create(Char.prototype);
 ぴ.prototype.constructor = ぴ;
+
+function や() {
+    Char.call(this);
+    this.expectRomanArray = [
+        ["y", "a"]
+    ];
+}
+
+や.prototype = Object.create(Char.prototype);
+や.prototype.constructor = や;
 
 function ゃ() {
     Char.call(this);

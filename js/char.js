@@ -41,3 +41,8 @@ Char.prototype.checkRoman = function(roman) {
         }
     }
 };
+
+function CharWithDerivations {
+    
+}
+
