@@ -42,7 +42,53 @@ Char.prototype.checkRoman = function(roman) {
     }
 };
 
-function CharWithDerivations {
-    
+function CharWithDerivations() {
+    Char.call(this);
+    this.relatedCharArray = [];
+}
+
+CharWithDerivations.prototype = Object.create(Char.prototype);
+CharWithDerivations.prototype.constructor = CharWithDerivations;
+
+CharWithDerivations.prototype.checkRoman = function(roman) {
+    const result = Char.prototype.checkRoman.call(this, roman);
+    if (result === ROMAN_NG) {
+        if (this.nextChar !== null) {
+            for (let i = 0; i < this.relatedCharArray.length; i++) {
+                // todo
+                if (this.constructor.name + this.nextChar.constructor.name !== this.relatedCharArray[i]) {
+                    continue;
+                }
+                const char = RomanFactory.create(this.relatedCharArray[i]);
+                let maybeOk = true;
+                for (let j = 0; j < this.nextExpectRomanIndex; j++) {
+                    if (char.checkRoman(this.expectRoman[j]) === ROMAN_NG) {
+                        maybeOk = false;
+                        break;
+                    }
+                }
+                if (maybeOk) {
+                    const result = char.checkRoman(roman);
+                    if (result === ROMAN_NG) {
+                        return ROMAN_NG;
+                    }
+                    else if (result === ROMAN_KEEP) {
+                        char.nextChar = this.nextChar.nextChar;
+                        return char;
+                    }
+                    else if (result === ROMAN_OK) {
+                        return this.nextChar.nextChar;
+                    }
+                }
+            }
+            return ROMAN_NG;
+        }
+        else {
+            return ROMAN_NG;
+        }
+    }
+    else {
+        return result;
+    }
 }
 

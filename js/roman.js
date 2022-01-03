@@ -40,13 +40,16 @@ function た() {
 た.prototype.constructor = た;
 
 function っ() {
-    Char.call(this);
+    CharWithDerivations.call(this);
     this.expectRomanArray = [
-        ["x", "t", "u"],
+        ["x", "t", "u"]
+    ];
+    this.relatedCharArray = [
+        "った"
     ];
 }
 
-っ.prototype = Object.create(Char.prototype);
+っ.prototype = Object.create(CharWithDerivations.prototype);
 っ.prototype.constructor = っ;
 
 function った() {
@@ -60,7 +63,7 @@ function った() {
 った.prototype.constructor = った;
 
 function に() {
-    Char.call(this);
+    CharWithDerivations.call(this);
     this.expectRomanArray = [
         ["n", "i"]
     ];
@@ -69,48 +72,8 @@ function に() {
     ];
 }
 
-に.prototype = Object.create(Char.prototype);
+に.prototype = Object.create(CharWithDerivations.prototype);
 に.prototype.constructor = に;
-
-に.prototype.checkRoman = function(roman) {
-    const result = Char.prototype.checkRoman.call(this, roman);
-    if (result === ROMAN_NG) {
-        if (this.nextChar !== null) {
-            for (let i = 0; i < this.relatedCharArray.length; i++) {
-                // todo
-                if (this.constructor.name + this.nextChar.constructor.name !== this.relatedCharArray[i]) {
-                    continue;
-                }
-                const char = RomanFactory.create(this.relatedCharArray[i]);
-                for (let j = 0; j < this.nextExpectRomanIndex; j++) {
-                    if (char.checkRoman(this.expectRoman[j]) === ROMAN_NG) {
-                        break;
-                    }
-                    if (j === this.nextExpectRomanIndex - 1) {
-                        const result = char.checkRoman(roman);
-                        if (result === ROMAN_NG) {
-                            return ROMAN_NG;
-                        }
-                        else if (result === ROMAN_KEEP) {
-                            char.nextChar = this.nextChar.nextChar;
-                            return char;
-                        }
-                        else if (result === ROMAN_OK) {
-                            return this.nextChar.nextChar;
-                        }
-                    }
-                }
-            }
-            return ROMAN_NG;
-        }
-        else {
-            return ROMAN_NG;
-        }
-    }
-    else {
-        return result;
-    }
-}
 
 function にゃ() {
     Char.call(this);
@@ -168,6 +131,9 @@ function ん() {
         if (roman === this.expectRoman[0]) {
             this.nextExpectRomanIndex += 1;
             return ROMAN_KEEP;
+        }
+        else {
+            return ROMAN_NG;
         }
     }
     else {
