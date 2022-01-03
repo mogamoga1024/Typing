@@ -24,20 +24,46 @@ function に() {
     this.expectRomanArray = [
         ["n", "i"]
     ];
+    this.relatedCharArray = [
+        "にゃ"
+    ]
 }
 
 に.prototype = Object.create(Char.prototype);
 に.prototype.constructor = に;
 
 に.prototype.checkRoman = function(roman) {
-    const result = Char.prototype.checkRoman(roman);
+    const result = Char.prototype.checkRoman.call(this, roman);
     if (result === ROMAN_NG) {
         if (this.nextChar !== null) {
-            // todo
+            for (let i = 0; i < this.relatedCharArray.length; i++) {
+                if (this.constructor.name + this.nextChar.constructor.name !== this.relatedCharArray[i]) {
+                    continue;
+                }
+                const char = RomanFactory.create(this.relatedCharArray[i]);
+                for (let j = 0; j < this.nextExpectRomanIndex; j++) {
+                    if (char.checkRoman(this.expectRoman[j]) === ROMAN_NG) {
+                        break;
+                    }
+                    if (j === this.nextExpectRomanIndex - 1) {
+                        if (char.checkRoman(roman) === ROMAN_NG) {
+                            return ROMAN_NG;
+                        }
+                        else {
+                            char.nextChar = this.nextChar.nextChar;
+                            return char;
+                        }
+                    }
+                }
+            }
+            return ROMAN_NG;
         }
         else {
             return ROMAN_NG;
         }
+    }
+    else {
+        return result;
     }
 }
 

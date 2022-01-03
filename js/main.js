@@ -1,21 +1,35 @@
 
+/*
 const charArray = [
-    new に(),
-    new ん(),
-    new じ(),
-    new ん()
+    RomanFactory.create("に"),
+    RomanFactory.create("ん"),
+    RomanFactory.create("じ"),
+    RomanFactory.create("ん")
 ];
 
 charArray[0].nextChar = charArray[1];
 charArray[1].nextChar = charArray[2];
 charArray[2].nextChar = charArray[3];
+*/
+//*
+const charArray = [
+    RomanFactory.create("ん"),
+    RomanFactory.create("に"),
+    RomanFactory.create("ゃ"),
+    RomanFactory.create("ぴ")
+];
 
-let currentIndex = 0;
+charArray[0].nextChar = charArray[1];
+charArray[1].nextChar = charArray[2];
+charArray[2].nextChar = charArray[3];
+//*/
+
+let currentChar = charArray[0];
 
 $(window).keydown(function(e) {
-    if (currentIndex >= charArray.length) return;
+    if (currentChar === null) return;
 
-    const result = charArray[currentIndex].checkRoman(e.key);
+    const result = currentChar.checkRoman(e.key);
     if (result === ROMAN_NG) {
         console.log("違うよん", e.key);
     }
@@ -24,7 +38,11 @@ $(window).keydown(function(e) {
     }
     else if (result === ROMAN_OK) {
         console.log("OK", e.key);
-        currentIndex += 1;
+        currentChar = currentChar.nextChar;
+    }
+    else {
+        console.log("KEEP", e.key);
+        currentChar = result;
     }
 });
 
