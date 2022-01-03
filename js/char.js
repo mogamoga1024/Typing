@@ -3,9 +3,10 @@ const ROMAN_NG = 0;
 const ROMAN_KEEP = 1;
 const ROMAN_OK = 2;
 
-function Char() {
+function Char(name, expectRomanArray) {
+    this.name = name;
     this.nextChar = null;
-    this.expectRomanArray = [];
+    this.expectRomanArray = expectRomanArray;
     this.nextExpectRomanIndex = 0;
     this.expectRoman = null;
 }
@@ -55,8 +56,7 @@ CharWithDerivations.prototype.checkRoman = function(roman) {
     if (result === ROMAN_NG) {
         if (this.nextChar !== null) {
             for (let i = 0; i < this.relatedCharArray.length; i++) {
-                // todo
-                if (this.constructor.name + this.nextChar.constructor.name !== this.relatedCharArray[i]) {
+                if (this.name + this.nextChar.name !== this.relatedCharArray[i]) {
                     continue;
                 }
                 const char = RomanFactory.create(this.relatedCharArray[i]);
