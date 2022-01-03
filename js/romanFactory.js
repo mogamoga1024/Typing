@@ -7,9 +7,9 @@ RomanFactory.create = function(char) {
         case "じ": return new Char(char, [["j", "i"], ["z", "i"]]);
         case "ぜ": return new Char(char, [["z", "e"]]);
         case "た": return new Char(char, [["t", "a"]]);
-        case "っ": return new っ();
+        case "っ": return new CharWithDerivations(char, [["x", "t", "u"]], ["った"]);
         case "った": return new Char(char, [["t", "t", "a"]]);
-        case "に": return new に();
+        case "に": return new CharWithDerivations(char, [["n", "i"]], ["にゃ"]);
         case "にゃ": return new Char(char, [["n", "y", "a"]]);
         case "ぴ": return new Char(char, [["p", "i"]]);
         case "や": return new Char(char, [["y", "a"]]);

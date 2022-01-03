@@ -1,32 +1,4 @@
 
-function っ() {
-    CharWithDerivations.call(this);
-    this.name = "っ";
-    this.expectRomanArray = [
-        ["x", "t", "u"]
-    ];
-    this.relatedCharArray = [
-        "った"
-    ];
-}
-
-っ.prototype = Object.create(CharWithDerivations.prototype);
-っ.prototype.constructor = っ;
-
-function に() {
-    CharWithDerivations.call(this);
-    this.name = "に";
-    this.expectRomanArray = [
-        ["n", "i"]
-    ];
-    this.relatedCharArray = [
-        "にゃ"
-    ];
-}
-
-に.prototype = Object.create(CharWithDerivations.prototype);
-に.prototype.constructor = に;
-
 function ん() {
     Char.call(this);
     this.name = "ん";

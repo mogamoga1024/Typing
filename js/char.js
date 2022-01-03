@@ -43,9 +43,9 @@ Char.prototype.checkRoman = function(roman) {
     }
 };
 
-function CharWithDerivations() {
-    Char.call(this);
-    this.relatedCharArray = [];
+function CharWithDerivations(name, expectRomanArray, relatedCharArray) {
+    Char.call(this, name, expectRomanArray);
+    this.relatedCharArray = relatedCharArray;
 }
 
 CharWithDerivations.prototype = Object.create(Char.prototype);

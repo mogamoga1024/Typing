@@ -1,5 +1,5 @@
 
-/*
+//*
 const charArray = [
     RomanFactory.create("に"),
     RomanFactory.create("ん"),
@@ -10,7 +10,7 @@ const charArray = [
 charArray[0].nextChar = charArray[1];
 charArray[1].nextChar = charArray[2];
 charArray[2].nextChar = charArray[3];
-*/
+//*/
 /*
 const charArray = [
     RomanFactory.create("ん"),
@@ -23,7 +23,7 @@ charArray[0].nextChar = charArray[1];
 charArray[1].nextChar = charArray[2];
 charArray[2].nextChar = charArray[3];
 */
-//*
+/*
 const charArray = [
     RomanFactory.create("や"),
     RomanFactory.create("っ"),
@@ -34,7 +34,7 @@ const charArray = [
 charArray[0].nextChar = charArray[1];
 charArray[1].nextChar = charArray[2];
 charArray[2].nextChar = charArray[3];
-//*/
+*/
 
 let currentChar = charArray[0];
 
