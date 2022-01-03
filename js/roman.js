@@ -1,10 +1,6 @@
 
 function ん() {
-    Char.call(this);
-    this.name = "ん";
-    this.expectRomanArray = [
-        ["n", "n"]
-    ];
+    Char.call(this, "ん", [["n", "n"]]);
     this.expectRoman = this.expectRomanArray[0];
 }
 
