@@ -11,7 +11,7 @@ function Char(name, expectRomanArray) {
     this.expectRoman = null;
 }
 
-Char.prototype.checkRoman = function(roman) {
+Char.prototype.inputRoman = function(roman) {
     if (this.nextExpectRomanIndex === 0) {
         for (let i = 0; i < this.expectRomanArray.length; i++) {
             if (roman === this.expectRomanArray[i][0]) {
@@ -51,8 +51,8 @@ function CharWithDerivations(name, expectRomanArray, relatedCharArray) {
 CharWithDerivations.prototype = Object.create(Char.prototype);
 CharWithDerivations.prototype.constructor = CharWithDerivations;
 
-CharWithDerivations.prototype.checkRoman = function(roman) {
-    const result = Char.prototype.checkRoman.call(this, roman);
+CharWithDerivations.prototype.inputRoman = function(roman) {
+    const result = Char.prototype.inputRoman.call(this, roman);
     if (result === ROMAN_NG) {
         if (this.nextChar !== null) {
             for (let i = 0; i < this.relatedCharArray.length; i++) {
@@ -62,13 +62,13 @@ CharWithDerivations.prototype.checkRoman = function(roman) {
                 const char = RomanFactory.create(this.relatedCharArray[i]);
                 let maybeOk = true;
                 for (let j = 0; j < this.nextExpectRomanIndex; j++) {
-                    if (char.checkRoman(this.expectRoman[j]) === ROMAN_NG) {
+                    if (char.inputRoman(this.expectRoman[j]) === ROMAN_NG) {
                         maybeOk = false;
                         break;
                     }
                 }
                 if (maybeOk) {
-                    const result = char.checkRoman(roman);
+                    const result = char.inputRoman(roman);
                     if (result === ROMAN_NG) {
                         return ROMAN_NG;
                     }
