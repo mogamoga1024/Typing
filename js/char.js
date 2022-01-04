@@ -38,6 +38,29 @@ Char.prototype.inputRoman = function(roman) {
             }
         }
         else {
+            for (let i = 0; i <= this.nextExpectRomanIndex; i++) {
+                for (let j = 0; j < this.expectRomanArray.length; j++) {
+                    const expectRoman = this.expectRomanArray[j];
+                    if (i > expectRoman.length - 1) {
+                        break;
+                    }
+                    if (this.expectRoman[i] !== expectRoman[i]) {
+                        break;
+                    }
+                    if (i === this.nextExpectRomanIndex) {
+                        if (roman === expectRoman[i]) {
+                            this.nextExpectRomanIndex += 1;
+                            this.expectRoman = expectRoman;
+                            if (this.nextExpectRomanIndex < this.expectRoman.length) {
+                                return ROMAN_KEEP;
+                            }
+                            else {
+                                return ROMAN_OK;
+                            }
+                        }
+                    }
+                }
+            }
             return ROMAN_NG;
         }
     }
