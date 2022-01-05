@@ -38,7 +38,7 @@ Char.prototype.inputRoman = function(roman) {
             }
         }
         else {
-            for (let i = 0; i <= this.nextExpectRomanIndex; i++) {
+            /*for (let i = 0; i <= this.nextExpectRomanIndex; i++) {
                 for (let j = 0; j < this.expectRomanArray.length; j++) {
                     const expectRoman = this.expectRomanArray[j];
                     if (i > expectRoman.length - 1) {
@@ -60,7 +60,7 @@ Char.prototype.inputRoman = function(roman) {
                         }
                     }
                 }
-            }
+            }*/
             return ROMAN_NG;
         }
     }
@@ -92,10 +92,7 @@ CharWithDerivations.prototype.inputRoman = function(roman) {
                 }
                 if (maybeOk) {
                     const result = char.inputRoman(roman);
-                    if (result === ROMAN_NG) {
-                        return ROMAN_NG;
-                    }
-                    else if (result === ROMAN_KEEP) {
+                    if (result === ROMAN_KEEP) {
                         char.nextChar = this.nextChar.nextChar;
                         return char;
                     }
