@@ -8,61 +8,29 @@ function Char(name, expectRomanArray) {
     this.nextChar = null;
     this.expectRomanArray = expectRomanArray;
     this.nextExpectRomanIndex = 0;
-    this.expectRoman = null;
 }
 
 Char.prototype.inputRoman = function(roman) {
-    if (this.nextExpectRomanIndex === 0) {
-        for (let i = 0; i < this.expectRomanArray.length; i++) {
-            if (roman === this.expectRomanArray[i][0]) {
-                this.nextExpectRomanIndex += 1;
-                this.expectRoman = this.expectRomanArray[i];
-                if (this.nextExpectRomanIndex < this.expectRoman.length) {
-                    return ROMAN_KEEP;
-                }
-                else {
-                    return ROMAN_OK;
-                }
-            }
+    
+    const self = this;
+    const tmpExpectRomanArray = this.expectRomanArray.filter(
+        function(expectRoman) {
+            return roman === expectRoman[self.nextExpectRomanIndex];
         }
-        return ROMAN_NG;
-    }
-    else {
-        if (roman === this.expectRoman[this.nextExpectRomanIndex]) {
-            this.nextExpectRomanIndex += 1;
-            if (this.nextExpectRomanIndex < this.expectRoman.length) {
-                return ROMAN_KEEP;
-            }
-            else {
-                return ROMAN_OK;
-            }
+    );
+
+    if (tmpExpectRomanArray.length !== 0) {
+        this.expectRomanArray = tmpExpectRomanArray;
+        this.nextExpectRomanIndex += 1;
+        if (this.nextExpectRomanIndex < this.expectRomanArray[0].length) {
+            return ROMAN_KEEP;
         }
         else {
-            /*for (let i = 0; i <= this.nextExpectRomanIndex; i++) {
-                for (let j = 0; j < this.expectRomanArray.length; j++) {
-                    const expectRoman = this.expectRomanArray[j];
-                    if (i > expectRoman.length - 1) {
-                        break;
-                    }
-                    if (this.expectRoman[i] !== expectRoman[i]) {
-                        break;
-                    }
-                    if (i === this.nextExpectRomanIndex) {
-                        if (roman === expectRoman[i]) {
-                            this.nextExpectRomanIndex += 1;
-                            this.expectRoman = expectRoman;
-                            if (this.nextExpectRomanIndex < this.expectRoman.length) {
-                                return ROMAN_KEEP;
-                            }
-                            else {
-                                return ROMAN_OK;
-                            }
-                        }
-                    }
-                }
-            }*/
-            return ROMAN_NG;
+            return ROMAN_OK;
         }
+    }
+    else {
+        return ROMAN_NG;
     }
 };
 
@@ -85,7 +53,7 @@ CharWithDerivations.prototype.inputRoman = function(roman) {
                 const char = RomanFactory.create(this.relatedCharArray[i]);
                 let maybeOk = true;
                 for (let j = 0; j < this.nextExpectRomanIndex; j++) {
-                    if (char.inputRoman(this.expectRoman[j]) === ROMAN_NG) {
+                    if (char.inputRoman(this.expectRomanArray[0][j]) === ROMAN_NG) {
                         maybeOk = false;
                         break;
                     }

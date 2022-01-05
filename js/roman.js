@@ -36,7 +36,6 @@ function っ() {
 
 function ん() {
     Char.call(this, "ん", [["n", "n"]]);
-    this.expectRoman = this.expectRomanArray[0];
 }
 
 ん.prototype = Object.create(Char.prototype);
@@ -44,7 +43,7 @@ function ん() {
 
 ん.prototype.inputRoman = function(roman) {
     if (this.nextExpectRomanIndex === 0) {
-        if (roman === this.expectRoman[0]) {
+        if (roman === this.expectRomanArray[0][0]) {
             this.nextExpectRomanIndex += 1;
             return ROMAN_KEEP;
         }
@@ -53,7 +52,7 @@ function ん() {
         }
     }
     else {
-        if (roman === this.expectRoman[1]) {
+        if (roman === this.expectRomanArray[0][1]) {
             this.nextExpectRomanIndex += 1;
             return ROMAN_OK;
         }
