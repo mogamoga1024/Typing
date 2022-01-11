@@ -43,7 +43,7 @@ CharWithDerivations.prototype.constructor = CharWithDerivations;
 
 CharWithDerivations.prototype.inputRoman = function(roman) {
     const result = Char.prototype.inputRoman.call(this, roman);
-    
+
     if (result !== ROMAN_NG) {
         return result;
     }

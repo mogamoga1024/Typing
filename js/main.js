@@ -9,6 +9,10 @@
 let currentChar = TypingManager.createCharChain("やじゅう");
 
 $(window).keydown(function(e) {
+    if (TypingManager.validRoman(e.key) === false) {
+        return true;
+    }
+
     if (currentChar === null) return;
 
     const result = currentChar.inputRoman(e.key);
