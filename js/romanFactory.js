@@ -17,6 +17,7 @@ RomanFactory.create = function(char) {
         case "ゃ": return new Char(char, [["x", "y", "a"], ["l", "y", "a"]]);
         case "ゅ": return new Char(char, [["x", "y", "u"], ["l", "y", "u"]]);
         case "ん": return new ん();
+        case "！": return new Char(char, [["!"]]);
         default:
             throw new Error(char + "に対応するオブジェクトが存在しません。");
     }

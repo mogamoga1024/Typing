@@ -1,52 +1,12 @@
 
 /*
-const charArray = [
-    RomanFactory.create("に"),
-    RomanFactory.create("ん"),
-    RomanFactory.create("じ"),
-    RomanFactory.create("ん")
-];
-
-charArray[0].nextChar = charArray[1];
-charArray[1].nextChar = charArray[2];
-charArray[2].nextChar = charArray[3];
+にんじん
+んにゃぴ
+やったぜ
+やじゅう
 */
-/*
-const charArray = [
-    RomanFactory.create("ん"),
-    RomanFactory.create("に"),
-    RomanFactory.create("ゃ"),
-    RomanFactory.create("ぴ")
-];
 
-charArray[0].nextChar = charArray[1];
-charArray[1].nextChar = charArray[2];
-charArray[2].nextChar = charArray[3];
-*/
-/*
-const charArray = [
-    RomanFactory.create("や"),
-    RomanFactory.create("っ"),
-    RomanFactory.create("た"),
-    RomanFactory.create("ぜ")
-];
-
-charArray[0].nextChar = charArray[1];
-charArray[1].nextChar = charArray[2];
-charArray[2].nextChar = charArray[3];
-*/
-const charArray = [
-    RomanFactory.create("や"),
-    RomanFactory.create("じ"),
-    RomanFactory.create("ゅ"),
-    RomanFactory.create("う")
-];
-
-charArray[0].nextChar = charArray[1];
-charArray[1].nextChar = charArray[2];
-charArray[2].nextChar = charArray[3];
-
-let currentChar = charArray[0];
+let currentChar = TypingManager.createCharChain("やじゅう");
 
 $(window).keydown(function(e) {
     if (currentChar === null) return;
