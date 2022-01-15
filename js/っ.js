@@ -1,6 +1,6 @@
 
 function っ() {
-    Char.call(this, "っ", [["x", "t", "u"], ["l", "t", "u"]]);
+    Char.call(this, "っ", ["xtu", "ltu"]);
     this.consecutiveRoman = [
         "b","c","d","f","g","h","j","k","l","m","p","q","r","s","t","v","w","x","y","z"
     ];

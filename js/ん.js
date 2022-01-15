@@ -1,6 +1,6 @@
 
 function ん() {
-    Char.call(this, "ん", [["n", "n"]]);
+    Char.call(this, "ん", ["nn"]);
 }
 
 ん.prototype = Object.create(Char.prototype);
