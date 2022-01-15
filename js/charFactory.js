@@ -35,7 +35,71 @@ CharFactory.create = function(char) {
         case "ぉ": return new Char(char, ["xo", "lo"]);
 
         // か行
+        case "か": return new Char(char, ["ka", "ca"]);
+        case "き":
+            return new CharWithDerivations(
+                char, ["ki"],
+                ["きゃ", "きぃ", "きゅ", "きぇ", "きょ"]
+            );
+        case "く":
+            return new CharWithDerivations(
+                char, ["ku", "cu", "qu"],
+                ["くゃ", "くゅ", "くょ", "くぁ", "くぃ", "くぅ", "くぇ", "くぉ"]
+            );
+        case "け": return new Char(char, ["ke"]);
+        case "こ": return new Char(char, ["ko", "co"]);
 
+        case "きゃ": return new Char(char, ["kya"]);
+        case "きぃ": return new Char(char, ["kyi"]);
+        case "きゅ": return new Char(char, ["kyu"]);
+        case "きぇ": return new Char(char, ["kye"]);
+        case "きょ": return new Char(char, ["kyo"]);
+
+        case "くゃ": return new Char(char, ["qya"]);
+        case "くゅ": return new Char(char, ["qyu"]);
+        case "くょ": return new Char(char, ["qyo"]);
+
+        case "くぁ": return new Char(char, ["qa", "qwa", "kwa"]);
+        case "くぃ": return new Char(char, ["qi", "qwi", "qyi"]);
+        case "くぅ": return new Char(char, ["qwu"]);
+        case "くぇ": return new Char(char, ["qe", "qwe", "qye"]);
+        case "くぉ": return new Char(char, ["qo", "qwo"]);
+
+        case "が": return new Char(char, ["ga"]);
+        case "ぎ":
+            return new CharWithDerivations(
+                char, ["gi"],
+                ["きゃ", "きぃ", "きゅ", "きぇ", "きょ"]
+            );
+        case "ぐ":
+            return new CharWithDerivations(
+                char, ["gu"],
+                ["ぐぁ", "ぐぃ", "ぐぅ", "ぐぇ", "ぐぉ"]
+            );
+        case "げ": return new Char(char, ["ge"]);
+        case "ご": return new Char(char, ["go"]);
+
+        case "ぎゃ": return new Char(char, ["gya"]);
+        case "ぎぃ": return new Char(char, ["gyi"]);
+        case "ぎゅ": return new Char(char, ["gyu"]);
+        case "ぎぇ": return new Char(char, ["gye"]);
+        case "ぎょ": return new Char(char, ["gyo"]);
+
+        case "ぐぁ": return new Char(char, ["gwa"]);
+        case "ぐぃ": return new Char(char, ["gwi"]);
+        case "ぐぅ": return new Char(char, ["gwu"]);
+        case "ぐぇ": return new Char(char, ["gwe"]);
+        case "ぐぉ": return new Char(char, ["gwo"]);
+
+        case "ヵ": return new Char(char, ["xka", "lka"]);
+        case "ヶ": return new Char(char, ["xke", "lke"]);
+
+        // さ行
+
+
+        
+
+        // hogehoge...
         case "じ": return new CharWithDerivations(char, ["ji", "zi"], ["じゅ"]);
         case "じゅ": return new Char(char, ["ju", "zyu", "jyu"]);
         case "ぜ": return new Char(char, ["ze"]);
