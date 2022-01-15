@@ -11,24 +11,22 @@ function っ() {
 
 っ.prototype.inputRoman = function(roman) {
     const result = Char.prototype.inputRoman.call(this, roman);
-    if (result === ROMAN_NG) {
-        if (this.nextChar == null) {
-            return ROMAN_NG;
-        }
-        else if ($.inArray(roman, this.consecutiveRoman) === -1) {
-            return ROMAN_NG;
-        }
-        else {
-            const nextChar = RomanFactory.create(this.nextChar.name);
-            if (nextChar.inputRoman(roman) === ROMAN_NG) {
-                return ROMAN_NG;
-            }
-            else {
-                return ROMAN_OK;
-            }
-        }
-    }
-    else {
+    if (result !== ROMAN_NG) {
         return result;
     }
+
+    if (this.nextChar == null) {
+        return ROMAN_NG;
+    }
+    
+    if ($.inArray(roman, this.consecutiveRoman) === -1) {
+        return ROMAN_NG;
+    }
+
+    const nextChar = RomanFactory.create(this.nextChar.name);
+    if (nextChar.inputRoman(roman) === ROMAN_NG) {
+        return ROMAN_NG;
+    }
+    
+    return ROMAN_OK;
 };

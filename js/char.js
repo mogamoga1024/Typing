@@ -14,17 +14,16 @@ Char.prototype.inputRoman = function(roman) {
         }
     );
 
-    if (tmpExpectRomanArray.length !== 0) {
-        this.expectRomanArray = tmpExpectRomanArray;
-        this.nextExpectRomanIndex += 1;
-        if (this.nextExpectRomanIndex < this.expectRomanArray[0].length) {
-            return ROMAN_KEEP;
-        }
-        else {
-            return ROMAN_OK;
-        }
-    }
-    else {
+    if (tmpExpectRomanArray.length === 0) {
         return ROMAN_NG;
     }
+
+    this.expectRomanArray = tmpExpectRomanArray;
+    this.nextExpectRomanIndex += 1;
+    
+    if (this.nextExpectRomanIndex < this.expectRomanArray[0].length) {
+        return ROMAN_KEEP;
+    }
+    
+    return ROMAN_OK;
 };
