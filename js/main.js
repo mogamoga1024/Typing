@@ -2,11 +2,11 @@
 /*
 にんじん
 んにゃぴ
-やったぜ
+やったぜ。
 やじゅう
 */
 
-let currentChar = TypingManager.createCharChain("やじゅう");
+let currentChar = TypingManager.createCharChain("やったぜ。");
 
 $(window).keydown(function(e) {
     if (TypingManager.validRoman(e.key) === false) {
