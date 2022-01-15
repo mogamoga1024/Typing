@@ -12,24 +12,22 @@ function ん() {
             this.nextExpectRomanIndex += 1;
             return ROMAN_KEEP;
         }
-        else {
-            return ROMAN_NG;
-        }
+        return ROMAN_NG;
     }
-    else {
-        if (roman === this.expectRomanArray[0][1]) {
-            this.nextExpectRomanIndex += 1;
-            return ROMAN_OK;
-        }
-        else if (this.nextChar == null) {
-            return ROMAN_NG;
-        }
-        else if (this.nextChar.inputRoman(roman) !== ROMAN_NG) {
-            this.nextExpectRomanIndex += 1;
-            return ROMAN_OK;
-        }
-        else {
-            return ROMAN_NG;
-        }
+    
+    if (roman === this.expectRomanArray[0][1]) {
+        this.nextExpectRomanIndex += 1;
+        return ROMAN_OK;
     }
+
+    if (this.nextChar == null) {
+        return ROMAN_NG;
+    }
+
+    if (this.nextChar.inputRoman(roman) !== ROMAN_NG) {
+        this.nextExpectRomanIndex += 1;
+        return ROMAN_OK;
+    }
+    
+    return ROMAN_NG;
 };

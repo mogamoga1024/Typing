@@ -21,23 +21,24 @@ CharWithDerivations.prototype.inputRoman = function(roman) {
         if (this.name + this.nextChar.name !== this.relatedCharArray[i]) {
             continue;
         }
+
         const char = RomanFactory.create(this.relatedCharArray[i]);
-        let maybeOk = true;
+        let isNG = false;
         for (let j = 0; j < this.nextExpectRomanIndex; j++) {
             if (char.inputRoman(this.expectRomanArray[0][j]) === ROMAN_NG) {
-                maybeOk = false;
+                isNG = true;
                 break;
             }
         }
-        if (maybeOk) {
-            const result = char.inputRoman(roman);
-            if (result === ROMAN_KEEP) {
-                char.nextChar = this.nextChar.nextChar;
-                return char;
-            }
-            else if (result === ROMAN_OK) {
-                return this.nextChar.nextChar;
-            }
+        if (isNG) continue;
+
+        const result = char.inputRoman(roman);
+        if (result === ROMAN_KEEP) {
+            char.nextChar = this.nextChar.nextChar;
+            return char;
+        }
+        else if (result === ROMAN_OK) {
+            return this.nextChar.nextChar;
         }
     }
     return ROMAN_NG;
