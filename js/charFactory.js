@@ -138,6 +138,12 @@ CharFactory.create = function(char) {
         case "じょ": return new Char(char, ["zyo", "jo", "jyo"]);
 
         // た行
+        case "た": return new Char(char, ["ta"]);
+        case "ち": return new CharWithDerivations(char, ["ti", "chi"]);
+        case "つ": return new CharWithDerivations(char, ["tu", "tsu"]);
+        case "て": return new CharWithDerivations(char, ["te"]);
+        case "と": return new CharWithDerivations(char, ["to"]);
+
 
         // hogehoge...
         case "じ": return new CharWithDerivations(char, ["ji", "zi"], ["じゅ"]);
