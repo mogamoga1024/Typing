@@ -10,7 +10,7 @@ TypingManager.createCharChain = function(text) {
     let firstChar = null;
     let preChar = null;
     for (let i = 0; i < text.length; i++) {
-        const char = RomanFactory.create(text[i]);
+        const char = CharFactory.create(text[i]);
         if (i === 0) {
             firstChar = char;
         }

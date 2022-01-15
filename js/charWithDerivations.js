@@ -22,7 +22,7 @@ CharWithDerivations.prototype.inputRoman = function(roman) {
             continue;
         }
 
-        const char = RomanFactory.create(this.relatedCharArray[i]);
+        const char = CharFactory.create(this.relatedCharArray[i]);
         let isNG = false;
         for (let j = 0; j < this.nextExpectRomanIndex; j++) {
             if (char.inputRoman(this.expectRomanArray[0][j]) === ROMAN_NG) {

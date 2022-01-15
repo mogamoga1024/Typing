@@ -1,7 +1,7 @@
 
-const RomanFactory = {};
+const CharFactory = {};
 
-RomanFactory.create = function(char) {
+CharFactory.create = function(char) {
     switch (char) {
         case "あ": return new Char(char, ["a"]);
         case "う": return new Char(char, ["u"]);
@@ -17,9 +17,10 @@ RomanFactory.create = function(char) {
         case "ゃ": return new Char(char, ["xya", "lya"]);
         case "ゅ": return new Char(char, ["xyu", "lyu"]);
         case "ん": return new ん();
-        case "！": return new Char(char, [["!"]]);
-        case "、": return new Char(char, [[","]]);
-        case "。": return new Char(char, [["."]]);
+        case "ー": return new Char(char, ["-"]);
+        case "！": return new Char(char, ["!"]);
+        case "、": return new Char(char, [","]);
+        case "。": return new Char(char, ["."]);
         default:
             throw new Error(char + "に対応するオブジェクトが存在しません。");
     }

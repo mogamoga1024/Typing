@@ -23,7 +23,7 @@ function っ() {
         return ROMAN_NG;
     }
 
-    const nextChar = RomanFactory.create(this.nextChar.name);
+    const nextChar = CharFactory.create(this.nextChar.name);
     if (nextChar.inputRoman(roman) === ROMAN_NG) {
         return ROMAN_NG;
     }
