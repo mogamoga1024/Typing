@@ -1,9 +1,6 @@
 
 function っ() {
     Char.call(this, "っ", ["xtu", "ltu"]);
-    this.consecutiveRoman = [
-        "b","c","d","f","g","h","j","k","l","m","p","q","r","s","t","v","w","x","y","z"
-    ];
 }
 
 っ.prototype = Object.create(Char.prototype);
@@ -19,7 +16,7 @@ function っ() {
         return ROMAN_NG;
     }
     
-    if ($.inArray(roman, this.consecutiveRoman) === -1) {
+    if (roman.match(/^(?=[a-z])(?!(a|i|u|e|o|n))$/) !== null) {
         return ROMAN_NG;
     }
 
