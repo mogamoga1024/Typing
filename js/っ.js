@@ -1,6 +1,6 @@
 
 function っ() {
-    Char.call(this, "っ", ["xtu", "ltu"]);
+    Char.call(this, "っ", ["xtu", "ltu", "ltsu"]);
 }
 
 っ.prototype = Object.create(Char.prototype);
