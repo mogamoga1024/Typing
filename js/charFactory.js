@@ -229,6 +229,42 @@ CharFactory.create = function(char) {
         case "ぴぇ": return new Char(char, ["pye"]);
         case "ぴょ": return new Char(char, ["pyo"]);
 
+        // ま行
+        case "ま": return new Char(char, ["ma"]);
+        case "み": return new Char(char, ["mi"], ["みゃ", "みぃ", "みゅ", "みぇ", "みょ"]);
+        case "む": return new Char(char, ["mu"]);
+        case "め": return new Char(char, ["me"]);
+        case "も": return new Char(char, ["mo"]);
+
+        case "みゃ": return new Char(char, ["mya"]);
+        case "みぃ": return new Char(char, ["myi"]);
+        case "みゅ": return new Char(char, ["myu"]);
+        case "みぇ": return new Char(char, ["mye"]);
+        case "みょ": return new Char(char, ["myo"]);
+
+        // や行
+        case "や": return new Char(char, ["ya"]);
+        case "ゆ": return new Char(char, ["yu"]);
+        case "よ": return new Char(char, ["yo"]);
+
+        case "ゃ": return new Char(char, ["xya", "lya"]);
+        case "ゅ": return new Char(char, ["xyu", "lyu"]);
+        case "ょ": return new Char(char, ["xyo", "lyo"]);
+
+        // ら行
+        case "ら": return new Char(char, ["ra"]);
+        case "り": return new Char(char, ["ri"], ["りゃ", "りぃ", "りゅ", "りぇ", "りょ"]);
+        case "る": return new Char(char, ["ru"]);
+        case "れ": return new Char(char, ["re"]);
+        case "ろ": return new Char(char, ["ro"]);
+
+        case "りゃ": return new Char(char, ["rya"]);
+        case "りぃ": return new Char(char, ["ryi"]);
+        case "りゅ": return new Char(char, ["ryu"]);
+        case "りぇ": return new Char(char, ["rye"]);
+        case "りょ": return new Char(char, ["ryo"]);
+
+
 
 
 
