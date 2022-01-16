@@ -264,15 +264,17 @@ CharFactory.create = function(char) {
         case "りぇ": return new Char(char, ["rye"]);
         case "りょ": return new Char(char, ["ryo"]);
 
+        // わ行
+        case "わ": return new Char(char, ["wa"]);
+        case "を": return new Char(char, ["wa"]);
+        case "ん": return new ん();
 
-
-
-
+        case "ゎ": return new Char(char, ["xwa", "lwa"]);
 
         // その他
-        case "ん": return new ん();
         case "ー": return new Char(char, ["-"]);
         case "！": return new Char(char, ["!"]);
+        case "'": return new Char(char, ["'"]);
         case "、": return new Char(char, [","]);
         case "。": return new Char(char, ["."]);
         default:

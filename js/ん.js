@@ -1,27 +1,16 @@
 
 function ん() {
-    Char.call(this, "ん", ["nn"]);
+    Char.call(this, "ん", ["nn", "n'", "xn"]);
 }
 
 ん.prototype = Object.create(Char.prototype);
 ん.prototype.constructor = ん;
 
 ん.prototype.inputRoman = function(roman) {
-    if (this.nextExpectRomanIndex === 0) {
-        if (roman === this.expectRomanArray[0][0]) {
-            this.nextExpectRomanIndex += 1;
-            return ROMAN_KEEP;
-        }
-        return ROMAN_NG;
-    }
-    
-    if (roman === this.expectRomanArray[0][1]) {
-        this.nextExpectRomanIndex += 1;
-        return ROMAN_OK;
-    }
+    const result = Char.prototype.inputRoman.call(this, roman);
 
-    if (this.nextChar == null) {
-        return ROMAN_NG;
+    if (result !== ROMAN_NG) {
+        return result;
     }
 
     if (this.nextChar.inputRoman(roman) !== ROMAN_NG) {
