@@ -170,20 +170,70 @@ CharFactory.create = function(char) {
         case "にぇ": return new Char(char, ["nye"]);
         case "にょ": return new Char(char, ["nyo"]);
 
+        // は行
+        case "は": return new Char(char, ["ha"]);
+        case "ひ": return new Char(char, ["hi"], ["ひゃ", "ひぃ", "ひゅ", "ひぇ", "ひょ"]);
+        case "ふ": return new Char(char, ["hu", "fu"], ["ふぁ", "ふぃ", "ふぅ", "ふぇ", "ふぉ", "ふゃ", "ふゅ", "ふょ"]);
+        case "へ": return new Char(char, ["he"]);
+        case "ほ": return new Char(char, ["ho"]);
+
+        case "ひゃ": return new Char(char, ["hya"]);
+        case "ひぃ": return new Char(char, ["hyi"]);
+        case "ひゅ": return new Char(char, ["hyu"]);
+        case "ひぇ": return new Char(char, ["hye"]);
+        case "ひょ": return new Char(char, ["hyo"]);
+
+        case "ふぁ": return new Char(char, ["fa", "fwa"]);
+        case "ふぃ": return new Char(char, ["fi", "fwi", "fyi"]);
+        case "ふぅ": return new Char(char, ["fwu"]);
+        case "ふぇ": return new Char(char, ["fe", "fwe", "fye"]);
+        case "ふぉ": return new Char(char, ["fo", "fwo"]);
+
+        case "ふゃ": return new Char(char, ["fya"]);
+        case "ふゅ": return new Char(char, ["fyu"]);
+        case "ふょ": return new Char(char, ["fyo"]);
+
+        case "ば": return new Char(char, ["ba"]);
+        case "び": return new Char(char, ["bi"], ["びゃ", "びぃ", "びゅ", "びぇ", "びょ"]);
+        case "ぶ": return new Char(char, ["bu"]);
+        case "べ": return new Char(char, ["be"]);
+        case "ぼ": return new Char(char, ["bo"]);
+
+        case "びゃ": return new Char(char, ["bya"]);
+        case "びぃ": return new Char(char, ["byi"]);
+        case "びゅ": return new Char(char, ["byu"]);
+        case "びぇ": return new Char(char, ["bye"]);
+        case "びょ": return new Char(char, ["byo"]);
+
+        case "ヴぁ": return new Char(char, ["va"]);
+        case "ヴぃ": return new Char(char, ["vi"]);
+        case "ヴ": return new Char(char, ["vu"]);
+        case "ヴぇ": return new Char(char, ["ve"]);
+        case "ヴぉ": return new Char(char, ["vo"]);
+
+        case "ヴゃ": return new Char(char, ["vya"]);
+        case "ヴぃ": return new Char(char, ["vyi"]);
+        case "ヴゅ": return new Char(char, ["vyu"]);
+        case "ヴぇ": return new Char(char, ["vye"]);
+        case "ヴょ": return new Char(char, ["vyo"]);
+
+        case "ぱ": return new Char(char, ["pa"]);
+        case "ぴ": return new Char(char, ["pi"], ["ぴゃ", "ぴぃ", "ぴゅ", "ぴぇ", "ぴょ"]);
+        case "ぷ": return new Char(char, ["pu"]);
+        case "ぺ": return new Char(char, ["pe"]);
+        case "ぽ": return new Char(char, ["po"]);
+
+        case "ぴゃ": return new Char(char, ["pya"]);
+        case "ぴぃ": return new Char(char, ["pyi"]);
+        case "ぴゅ": return new Char(char, ["pyu"]);
+        case "ぴぇ": return new Char(char, ["pye"]);
+        case "ぴょ": return new Char(char, ["pyo"]);
 
 
-        // hogehoge...
-        case "じ": return new Char(char, ["ji", "zi"], ["じゅ"]);
-        case "じゅ": return new Char(char, ["ju", "zyu", "jyu"]);
-        case "ぜ": return new Char(char, ["ze"]);
-        case "た": return new Char(char, ["ta"]);
-        case "っ": return new っ();
-        case "に": return new Char(char, ["ni"], ["にゃ"]);
-        case "にゃ": return new Char(char, ["nya"]);
-        case "ぴ": return new Char(char, ["pi"]);
-        case "や": return new Char(char, ["ya"]);
-        case "ゃ": return new Char(char, ["xya", "lya"]);
-        case "ゅ": return new Char(char, ["xyu", "lyu"]);
+
+
+
+        // その他
         case "ん": return new ん();
         case "ー": return new Char(char, ["-"]);
         case "！": return new Char(char, ["!"]);

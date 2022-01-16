@@ -14,7 +14,7 @@ TypingManager.createCharChain = function(text) {
         if (i === 0) {
             firstChar = char;
         }
-        if (preChar != null) {
+        if (preChar !== null) {
             preChar.nextChar = char;
         }
         preChar = char;
