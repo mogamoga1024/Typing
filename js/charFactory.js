@@ -206,15 +206,13 @@ CharFactory.create = function(char) {
         case "びょ": return new Char(char, ["byo"]);
 
         case "ヴぁ": return new Char(char, ["va"]);
-        case "ヴぃ": return new Char(char, ["vi"]);
-        case "ヴ": return new Char(char, ["vu"]);
-        case "ヴぇ": return new Char(char, ["ve"]);
+        case "ヴぃ": return new Char(char, ["vi", "vyi"]);
+        case "ヴ": return new Char(char, ["vu"], ["ヴぁ", "ヴぃ", "ヴぇ", "ヴぉ", "ヴゃ", "ヴゅ", "ヴょ"]);
+        case "ヴぇ": return new Char(char, ["ve", "vye"]);
         case "ヴぉ": return new Char(char, ["vo"]);
 
         case "ヴゃ": return new Char(char, ["vya"]);
-        case "ヴぃ": return new Char(char, ["vyi"]);
         case "ヴゅ": return new Char(char, ["vyu"]);
-        case "ヴぇ": return new Char(char, ["vye"]);
         case "ヴょ": return new Char(char, ["vyo"]);
 
         case "ぱ": return new Char(char, ["pa"]);

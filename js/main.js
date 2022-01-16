@@ -6,7 +6,7 @@
 やじゅう
 */
 
-let currentChar = TypingManager.createCharChain("んけーい");
+let currentChar = TypingManager.createCharChain("ヴぁいおんりん");
 
 $(window).keydown(function(e) {
     if (TypingManager.validRoman(e.key) === false) {
