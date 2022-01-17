@@ -6,7 +6,14 @@
 やじゅう
 */
 
-let currentText = new Text("うんち！");
+const textArray = [
+    "まずうちさぁ、おくじょうあんだけど、やいてかない？",
+    "あーいいっすねー",
+    "やじゅうのがんこう"
+];
+
+let textIndex = 0;
+let currentText = new Text(textArray[textIndex]);
 
 $(window).keydown(function(e) {
     console.log(e.key);
@@ -20,6 +27,9 @@ $(window).keydown(function(e) {
             break;
         case TEXT_COMPLETE:
             console.log("OK");
+            if (textIndex < textArray.length - 1) {
+                currentText = new Text(textArray[++textIndex]);
+            }
             break;
     }
 });

@@ -338,6 +338,7 @@ CharFactory.create = function(char) {
         // 記号
         case "ー": return new Char(char, ["-"]);
         case "！": return new Char(char, ["!"]);
+        case "？": return new Char(char, ["?"]);
         case "'": return new Char(char, ["'"]);
         case "\"": return new Char(char, ["\""]);
         case "、": return new Char(char, [","]);
