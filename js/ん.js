@@ -15,7 +15,7 @@ function ん() {
 
     if (this.nextChar.inputRoman(roman) !== CHAR_NG) {
         this.nextExpectRomanIndex += 1;
-        return CHAR_OK;
+        return CHAR_COMPLETE;
     }
     
     return CHAR_NG;

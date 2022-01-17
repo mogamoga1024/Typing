@@ -25,5 +25,5 @@ function っ() {
         return CHAR_NG;
     }
     
-    return CHAR_OK;
+    return CHAR_COMPLETE;
 };

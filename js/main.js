@@ -6,29 +6,21 @@
 やじゅう
 */
 
-let currentChar = TypingManager.createCharChain("\"");
+let currentText = new Text("うんち！");
 
 $(window).keydown(function(e) {
-    if (TypingManager.validRoman(e.key) === false) {
-        return true;
-    }
+    console.log(e.key);
 
-    if (currentChar === null) return;
-
-    const result = currentChar.inputRoman(e.key);
-    if (result === CHAR_NG) {
-        console.log("違うよん", e.key);
-    }
-    else if (result === CHAR_KEEP) {
-        console.log("KEEP", e.key);
-    }
-    else if (result === CHAR_OK) {
-        console.log("OK", e.key);
-        currentChar = currentChar.nextChar;
-    }
-    else {
-        console.log("KEEP", e.key);
-        currentChar = result;
+    switch (currentText.inputRoman(e.key)) {
+        case TEXT_NG:
+            console.log("NG");
+            break;
+        case TEXT_KEEP:
+            console.log("KEEP");
+            break;
+        case TEXT_COMPLETE:
+            console.log("OK");
+            break;
     }
 });
 

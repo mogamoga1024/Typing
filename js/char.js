@@ -37,7 +37,7 @@ Char.prototype.inputThisCharRoman = function(roman) {
         return CHAR_KEEP;
     }
     
-    return CHAR_OK;
+    return CHAR_COMPLETE;
 };
 
 Char.prototype.inputDerivationCharRoman = function(roman) {
@@ -61,7 +61,7 @@ Char.prototype.inputDerivationCharRoman = function(roman) {
             char.nextChar = this.nextChar.nextChar;
             return char;
         }
-        else if (result === CHAR_OK) {
+        else if (result === CHAR_COMPLETE) {
             return this.nextChar.nextChar;
         }
     }
