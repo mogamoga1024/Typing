@@ -8,22 +8,22 @@ function っ() {
 
 っ.prototype.inputRoman = function(roman) {
     const result = Char.prototype.inputRoman.call(this, roman);
-    if (result !== ROMAN_NG) {
+    if (result !== CHAR_NG) {
         return result;
     }
 
     if (this.nextChar == null) {
-        return ROMAN_NG;
+        return CHAR_NG;
     }
     
     if (roman.match(/^(?=[a-z])(?!(a|i|u|e|o|n))$/) !== null) {
-        return ROMAN_NG;
+        return CHAR_NG;
     }
 
     const nextChar = CharFactory.create(this.nextChar.name);
-    if (nextChar.inputRoman(roman) === ROMAN_NG) {
-        return ROMAN_NG;
+    if (nextChar.inputRoman(roman) === CHAR_NG) {
+        return CHAR_NG;
     }
     
-    return ROMAN_OK;
+    return CHAR_OK;
 };

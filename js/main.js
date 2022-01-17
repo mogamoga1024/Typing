@@ -16,13 +16,13 @@ $(window).keydown(function(e) {
     if (currentChar === null) return;
 
     const result = currentChar.inputRoman(e.key);
-    if (result === ROMAN_NG) {
+    if (result === CHAR_NG) {
         console.log("違うよん", e.key);
     }
-    else if (result === ROMAN_KEEP) {
+    else if (result === CHAR_KEEP) {
         console.log("KEEP", e.key);
     }
-    else if (result === ROMAN_OK) {
+    else if (result === CHAR_OK) {
         console.log("OK", e.key);
         currentChar = currentChar.nextChar;
     }

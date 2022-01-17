@@ -10,7 +10,7 @@ function Char(name, expectRomanArray, relatedCharArray) {
 Char.prototype.inputRoman = function(roman) {
     const result = this.inputThisCharRoman(roman);
 
-    if (result === ROMAN_NG && this.relatedCharArray.length > 0 && this.nextChar !== null) {
+    if (result === CHAR_NG && this.relatedCharArray.length > 0 && this.nextChar !== null) {
         return this.inputDerivationCharRoman(roman);
     }
     else {
@@ -27,17 +27,17 @@ Char.prototype.inputThisCharRoman = function(roman) {
     );
 
     if (tmpExpectRomanArray.length === 0) {
-        return ROMAN_NG;
+        return CHAR_NG;
     }
 
     this.expectRomanArray = tmpExpectRomanArray;
     this.nextExpectRomanIndex += 1;
     
     if (this.nextExpectRomanIndex < this.expectRomanArray[0].length) {
-        return ROMAN_KEEP;
+        return CHAR_KEEP;
     }
     
-    return ROMAN_OK;
+    return CHAR_OK;
 };
 
 Char.prototype.inputDerivationCharRoman = function(roman) {
@@ -49,7 +49,7 @@ Char.prototype.inputDerivationCharRoman = function(roman) {
         const char = CharFactory.create(this.relatedCharArray[i]);
         let isNG = false;
         for (let j = 0; j < this.nextExpectRomanIndex; j++) {
-            if (char.inputRoman(this.expectRomanArray[0][j]) === ROMAN_NG) {
+            if (char.inputRoman(this.expectRomanArray[0][j]) === CHAR_NG) {
                 isNG = true;
                 break;
             }
@@ -57,13 +57,13 @@ Char.prototype.inputDerivationCharRoman = function(roman) {
         if (isNG) continue;
 
         const result = char.inputRoman(roman);
-        if (result === ROMAN_KEEP) {
+        if (result === CHAR_KEEP) {
             char.nextChar = this.nextChar.nextChar;
             return char;
         }
-        else if (result === ROMAN_OK) {
+        else if (result === CHAR_OK) {
             return this.nextChar.nextChar;
         }
     }
-    return ROMAN_NG;
+    return CHAR_NG;
 }

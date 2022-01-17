@@ -9,14 +9,14 @@ function ん() {
 ん.prototype.inputRoman = function(roman) {
     const result = Char.prototype.inputRoman.call(this, roman);
 
-    if (result !== ROMAN_NG) {
+    if (result !== CHAR_NG) {
         return result;
     }
 
-    if (this.nextChar.inputRoman(roman) !== ROMAN_NG) {
+    if (this.nextChar.inputRoman(roman) !== CHAR_NG) {
         this.nextExpectRomanIndex += 1;
-        return ROMAN_OK;
+        return CHAR_OK;
     }
     
-    return ROMAN_NG;
+    return CHAR_NG;
 };
