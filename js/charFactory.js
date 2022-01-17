@@ -269,10 +269,77 @@ CharFactory.create = function(char) {
 
         case "ゎ": return new Char(char, ["xwa", "lwa"]);
 
-        // その他
+        // アルファベット・数字
+        case "a": return new Char(char, ["a"]);
+        case "b": return new Char(char, ["b"]);
+        case "c": return new Char(char, ["c"]);
+        case "d": return new Char(char, ["d"]);
+        case "e": return new Char(char, ["e"]);
+        case "f": return new Char(char, ["f"]);
+        case "g": return new Char(char, ["g"]);
+        case "h": return new Char(char, ["h"]);
+        case "i": return new Char(char, ["i"]);
+        case "j": return new Char(char, ["j"]);
+        case "k": return new Char(char, ["k"]);
+        case "l": return new Char(char, ["l"]);
+        case "m": return new Char(char, ["m"]);
+        case "n": return new Char(char, ["n"]);
+        case "o": return new Char(char, ["o"]);
+        case "p": return new Char(char, ["p"]);
+        case "q": return new Char(char, ["q"]);
+        case "r": return new Char(char, ["r"]);
+        case "s": return new Char(char, ["s"]);
+        case "t": return new Char(char, ["t"]);
+        case "u": return new Char(char, ["u"]);
+        case "v": return new Char(char, ["v"]);
+        case "w": return new Char(char, ["w"]);
+        case "x": return new Char(char, ["x"]);
+        case "y": return new Char(char, ["y"]);
+        case "z": return new Char(char, ["z"]);
+
+        case "A": return new Char(char, ["A"]);
+        case "B": return new Char(char, ["B"]);
+        case "C": return new Char(char, ["C"]);
+        case "D": return new Char(char, ["D"]);
+        case "E": return new Char(char, ["E"]);
+        case "F": return new Char(char, ["F"]);
+        case "G": return new Char(char, ["G"]);
+        case "H": return new Char(char, ["H"]);
+        case "I": return new Char(char, ["I"]);
+        case "J": return new Char(char, ["J"]);
+        case "K": return new Char(char, ["K"]);
+        case "L": return new Char(char, ["L"]);
+        case "M": return new Char(char, ["M"]);
+        case "N": return new Char(char, ["N"]);
+        case "O": return new Char(char, ["O"]);
+        case "P": return new Char(char, ["P"]);
+        case "Q": return new Char(char, ["Q"]);
+        case "R": return new Char(char, ["R"]);
+        case "S": return new Char(char, ["S"]);
+        case "T": return new Char(char, ["T"]);
+        case "U": return new Char(char, ["U"]);
+        case "V": return new Char(char, ["V"]);
+        case "W": return new Char(char, ["W"]);
+        case "X": return new Char(char, ["X"]);
+        case "Y": return new Char(char, ["Y"]);
+        case "Z": return new Char(char, ["Z"]);
+
+        case "0": return new Char(char, ["0"]);
+        case "1": return new Char(char, ["1"]);
+        case "2": return new Char(char, ["2"]);
+        case "3": return new Char(char, ["3"]);
+        case "4": return new Char(char, ["4"]);
+        case "5": return new Char(char, ["5"]);
+        case "6": return new Char(char, ["6"]);
+        case "7": return new Char(char, ["7"]);
+        case "8": return new Char(char, ["8"]);
+        case "9": return new Char(char, ["9"]);
+
+        // 記号
         case "ー": return new Char(char, ["-"]);
         case "！": return new Char(char, ["!"]);
         case "'": return new Char(char, ["'"]);
+        case "\"": return new Char(char, ["\""]);
         case "、": return new Char(char, [","]);
         case "。": return new Char(char, ["."]);
         default:
