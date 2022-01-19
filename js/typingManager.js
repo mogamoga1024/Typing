@@ -16,25 +16,26 @@ TypingManager.createCharChain = function(text) {
     let isFirst = true;
     for (let i = 0; i < text.length; i++) {
         const name = text[i];
+        let tmpName = null;
         let char = null;
         if (i !== text.length - 1) {
             const nextName = text[i + 1];
             if (nextName.match(/^(ぁ|ぃ|ぅ|ぇ|ぉ|ゃ|ゅ|ょ)$/) !== null) {
-                const tmpChar = CharFactory.create(name + nextName);
-                if (tmpChar !== null) {
-                    char = tmpChar;
-                    i++;
-                }
-                else {
-                    char = CharFactory.create(name);
-                }
+                tmpName = name + nextName;
+            }
+        }
+
+        if (tmpName === null) {
+            char = CharFactory.create(name);
+        }
+        else {
+            char = CharFactory.create(tmpName);
+            if (char !== null) {
+                i++;
             }
             else {
                 char = CharFactory.create(name);
             }
-        }
-        else {
-            char = CharFactory.create(name);
         }
 
         if (isFirst) {
