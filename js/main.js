@@ -6,11 +6,13 @@
 やじゅう
 */
 
-const textArray = [
-    "まずうちさぁ、おくじょうあんだけど、やいてかない？",
-    "あーいいっすねー",
-    "やじゅうのがんこう"
-];
+// const textArray = [
+//     "まずうちさぁ、おくじょうあんだけど、やいてかない？",
+//     "あーいいっすねー",
+//     "やじゅうのがんこう"
+// ];
+
+const textArray = ["じゃがいも"];
 
 let textIndex = 0;
 let currentText = new Text(textArray[textIndex]);
