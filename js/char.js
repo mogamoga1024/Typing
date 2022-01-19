@@ -1,17 +1,21 @@
 
-function Char(name, expectRomanArray, relatedCharArray) {
+function Char(name, expectRomanArray) {
     this.name = name;
     this.nextChar = null;
     this.expectRomanArray = expectRomanArray;
-    this.relatedCharArray = relatedCharArray === undefined ? [] : relatedCharArray;
     this.nextExpectRomanIndex = 0;
+    this.divisionCharChain = null;
+
+    if (this.name.length > 1) {
+        this.divisionCharChain = TypingManager.createCharChain(this.name);
+    }
 }
 
 Char.prototype.inputRoman = function(roman) {
     const result = this.inputThisCharRoman(roman);
 
-    if (result === CHAR_NG && this.relatedCharArray.length > 0 && this.nextChar !== null) {
-        return this.inputDerivationCharRoman(roman);
+    if (result === CHAR_NG && this.divisionCharChain !== null) {
+        return this.inputDivisionCharRoman(roman);
     }
     else {
         return result;
@@ -40,30 +44,31 @@ Char.prototype.inputThisCharRoman = function(roman) {
     return CHAR_COMPLETE;
 };
 
-Char.prototype.inputDerivationCharRoman = function(roman) {
-    for (let i = 0; i < this.relatedCharArray.length; i++) {
-        if (this.name + this.nextChar.name !== this.relatedCharArray[i]) {
-            continue;
-        }
-
-        const char = CharFactory.create(this.relatedCharArray[i]);
-        let isNG = false;
-        for (let j = 0; j < this.nextExpectRomanIndex; j++) {
-            if (char.inputRoman(this.expectRomanArray[0][j]) === CHAR_NG) {
-                isNG = true;
-                break;
-            }
-        }
-        if (isNG) continue;
-
-        const result = char.inputRoman(roman);
-        if (result === CHAR_KEEP) {
-            char.nextChar = this.nextChar.nextChar;
-            return char;
-        }
-        else if (result === CHAR_COMPLETE) {
-            return this.nextChar.nextChar;
+Char.prototype.inputDivisionCharRoman = function(roman) {
+    const char = this.divisionCharChain;
+    for (let j = 0; j < this.nextExpectRomanIndex; j++) {
+        if (char.inputRoman(this.expectRomanArray[0][j]) === CHAR_NG) {
+            return CHAR_NG;
         }
     }
-    return CHAR_NG;
-}
+
+    const result = char.inputRoman(roman);
+    if (result === CHAR_NG) {
+        return CHAR_NG;
+    }
+    
+    let lastDivisionChar = char.nextChar; // char.nextChar is not null.
+    while (true) {
+        if (lastDivisionChar.nextChar === null) {
+            break;
+        }
+        lastDivisionChar = lastDivisionChar.nextChar;
+    }
+    lastDivisionChar = this.nextChar;
+
+    if (result === CHAR_KEEP) {
+        return char;
+    }
+    
+    return char.nextChar;
+};
