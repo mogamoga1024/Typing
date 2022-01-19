@@ -60,11 +60,11 @@ Char.prototype.inputDivisionCharRoman = function(roman) {
     let lastDivisionChar = char.nextChar; // char.nextChar is not null.
     while (true) {
         if (lastDivisionChar.nextChar === null) {
+            lastDivisionChar.nextChar = this.nextChar;
             break;
         }
         lastDivisionChar = lastDivisionChar.nextChar;
     }
-    lastDivisionChar = this.nextChar;
 
     if (result === CHAR_KEEP) {
         return char;
