@@ -11,6 +11,13 @@ function Char(name, expectRomanArray) {
     }
 }
 
+Char.prototype.expectRoman = function() {
+    if (this.expectRomanArray.length > 0) {
+        return this.expectRomanArray[0];
+    }
+    return "";
+};
+
 Char.prototype.inputRoman = function(roman) {
     const result = this.inputThisCharRoman(roman);
 

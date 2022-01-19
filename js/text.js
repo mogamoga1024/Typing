@@ -1,6 +1,16 @@
 
 function Text(text) {
     this.char = TypingManager.createCharChain(text);
+
+    // debug
+    console.log(text);
+    let tmpChar = this.char;
+    let roman = "";
+    while (tmpChar !== null) {
+        roman += tmpChar.expectRoman();
+        tmpChar = tmpChar.nextChar;
+    }
+    console.log(roman);
 }
 
 Text.prototype.inputRoman = function(roman) {

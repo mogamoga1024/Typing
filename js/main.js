@@ -12,7 +12,7 @@
 //     "やじゅうのがんこう"
 // ];
 
-const textArray = ["じゃがいも"];
+const textArray = ["んにゃんぴっぴ"];
 
 let textIndex = 0;
 let currentText = new Text(textArray[textIndex]);

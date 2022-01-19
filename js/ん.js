@@ -6,6 +6,17 @@ function ん() {
 ん.prototype = Object.create(Char.prototype);
 ん.prototype.constructor = ん;
 
+ん.prototype.expectRoman = function() {
+    if (this.nextChar === null) {
+        return Char.prototype.expectRoman.call(this);
+    }
+    const nextCharFirstRoman = this.nextChar.expectRoman()[0];
+    if (nextCharFirstRoman === "n" || nextCharFirstRoman === "'") {
+        return Char.prototype.expectRoman.call(this);
+    }
+    return "n";
+};
+
 ん.prototype.inputRoman = function(roman) {
     const result = Char.prototype.inputRoman.call(this, roman);
 
