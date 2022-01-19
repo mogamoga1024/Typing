@@ -7,6 +7,50 @@ TypingManager.validRoman = function(roman) {
 
 // サロゲートペア文字は考慮しない
 TypingManager.createCharChain = function(text) {
+    if (text.length === 1) {
+        return CharFactory.create(text[0]);
+    }
+
+    let firstChar = null;
+    let preChar = null;
+    let isFirst = true;
+    for (let i = 0; i < text.length; i++) {
+        const name = text[i];
+        let char = null;
+        if (i !== text.length - 1) {
+            const nextName = text[i + 1];
+            if (nextName.match(/^(ぁ|ぃ|ぅ|ぇ|ぉ|ゃ|ゅ|ょ)$/) !== null) {
+                const tmpChar = CharFactory.create(name + nextName);
+                if (tmpChar !== null) {
+                    char = tmpChar;
+                    i++;
+                }
+                else {
+                    char = CharFactory.create(name);
+                }
+            }
+            else {
+                char = CharFactory.create(name);
+            }
+        }
+        else {
+            char = CharFactory.create(name);
+        }
+
+        if (isFirst) {
+            isFirst = false;
+            firstChar = char;
+        }
+        if (preChar !== null) {
+            preChar.nextChar = char;
+        }
+        preChar = char;
+    }
+    return firstChar;
+};
+
+// サロゲートペア文字は考慮しない
+TypingManager.createDivisionCharChain = function(text) {
     let firstChar = null;
     let preChar = null;
     for (let i = 0; i < text.length; i++) {
@@ -21,4 +65,3 @@ TypingManager.createCharChain = function(text) {
     }
     return firstChar;
 };
-

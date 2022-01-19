@@ -7,7 +7,7 @@ function Char(name, expectRomanArray) {
     this.divisionCharChain = null;
 
     if (this.name.length > 1) {
-        this.divisionCharChain = TypingManager.createCharChain(this.name);
+        this.divisionCharChain = TypingManager.createDivisionCharChain(this.name);
     }
 }
 
