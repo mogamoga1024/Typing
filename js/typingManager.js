@@ -20,7 +20,7 @@ TypingManager.createCharChain = function(text) {
         let char = null;
         if (i !== text.length - 1) {
             const nextName = text[i + 1];
-            if (nextName.match(/^(ぁ|ぃ|ぅ|ぇ|ぉ|ゃ|ゅ|ょ)$/) !== null) {
+            if (nextName.match(/^(ぁ|ぃ|ぅ|ぇ|ぉ|ゃ|ゅ|ょ|ァ|ィ|ゥ|ェ|ォ|ャ|ュ|ョ)$/) !== null) {
                 tmpName = name + nextName;
             }
         }
