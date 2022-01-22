@@ -7,15 +7,15 @@ function っ() {
 っ.prototype = Object.create(Char.prototype);
 っ.prototype.constructor = っ;
 
-っ.prototype.expectRoman = function() {
+っ.prototype.remainExpectRoman = function() {
     if (this.nextChar === null) {
-        return Char.prototype.expectRoman.call(this);
+        return Char.prototype.remainExpectRoman.call(this);
     }
-    const nextCharFirstRoman = this.nextChar.expectRoman()[0];
+    const nextCharFirstRoman = this.nextChar.remainExpectRoman()[0];
     if (nextCharFirstRoman.match(this.regex) === null) {
         return nextCharFirstRoman;
     }
-    return Char.prototype.expectRoman.call(this);
+    return Char.prototype.remainExpectRoman.call(this);
 };
 
 っ.prototype.inputRoman = function(roman) {

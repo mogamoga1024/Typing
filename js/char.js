@@ -32,8 +32,8 @@ Char.prototype.inputRoman = function(roman) {
 Char.prototype.inputThisCharRoman = function(roman) {
     const self = this;
     const tmpExpectRomanArray = this.expectRomanArray.filter(
-        function(expectRoman) {
-            return roman === expectRoman[self.nextExpectRomanIndex];
+        function(remainExpectRoman) {
+            return roman === remainExpectRoman[self.nextExpectRomanIndex];
         }
     );
 
