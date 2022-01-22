@@ -11,7 +11,7 @@ function Char(name, expectRomanArray) {
     }
 }
 
-Char.prototype.remainExpectRoman = function() {
+Char.prototype.expectRoman = function() {
     if (this.expectRomanArray.length > 0) {
         return this.expectRomanArray[0];
     }
@@ -32,8 +32,8 @@ Char.prototype.inputRoman = function(roman) {
 Char.prototype.inputThisCharRoman = function(roman) {
     const self = this;
     const tmpExpectRomanArray = this.expectRomanArray.filter(
-        function(remainExpectRoman) {
-            return roman === remainExpectRoman[self.nextExpectRomanIndex];
+        function(expectRoman) {
+            return roman === expectRoman[self.nextExpectRomanIndex];
         }
     );
 

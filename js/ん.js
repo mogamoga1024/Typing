@@ -6,13 +6,13 @@ function ん() {
 ん.prototype = Object.create(Char.prototype);
 ん.prototype.constructor = ん;
 
-ん.prototype.remainExpectRoman = function() {
+ん.prototype.expectRoman = function() {
     if (this.nextChar === null) {
-        return Char.prototype.remainExpectRoman.call(this);
+        return Char.prototype.expectRoman.call(this);
     }
-    const nextCharFirstRoman = this.nextChar.remainExpectRoman()[0];
+    const nextCharFirstRoman = this.nextChar.expectRoman()[0];
     if (nextCharFirstRoman === "n" || nextCharFirstRoman === "'") {
-        return Char.prototype.remainExpectRoman.call(this);
+        return Char.prototype.expectRoman.call(this);
     }
     if (
         this.nextExpectRomanIndex > 1 ||

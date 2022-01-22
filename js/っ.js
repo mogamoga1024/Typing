@@ -7,18 +7,18 @@ function っ() {
 っ.prototype = Object.create(Char.prototype);
 っ.prototype.constructor = っ;
 
-っ.prototype.remainExpectRoman = function() {
+っ.prototype.expectRoman = function() {
     if (this.nextChar === null) {
-        return Char.prototype.remainExpectRoman.call(this);
+        return Char.prototype.expectRoman.call(this);
     }
     if (this.nextExpectRomanIndex > 0) {
         return this.expectRomanArray[0];
     }
-    const nextCharFirstRoman = this.nextChar.remainExpectRoman()[0];
+    const nextCharFirstRoman = this.nextChar.expectRoman()[0];
     if (nextCharFirstRoman.match(this.regex) === null) {
         return nextCharFirstRoman;
     }
-    return Char.prototype.remainExpectRoman.call(this);
+    return Char.prototype.expectRoman.call(this);
 };
 
 っ.prototype.inputRoman = function(roman) {
