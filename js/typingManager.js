@@ -2,7 +2,7 @@
 const TypingManager = {};
 
 TypingManager.validRoman = function(roman) {
-    return roman.match(/^([A-Za-z0-9]|-|!|\?|'|"|\.|,)$/) !== null;
+    return roman.match(/^([A-Za-z0-9]|-|!|\?|'|"|\.|,|\[|\])$/) !== null;
 };
 
 // サロゲートペア文字は考慮しない

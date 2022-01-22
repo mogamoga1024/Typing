@@ -18,3 +18,8 @@ body {
 #not-typed {
     color: black;
 }
+
+#result {
+    margin-top: 16px;
+    font-size: 24px;
+}

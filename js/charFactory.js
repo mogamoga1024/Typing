@@ -343,6 +343,8 @@ CharFactory.create = function(char) {
         case "\"": return new Char(char, ["\""]);
         case "、": return new Char(char, [","]);
         case "。": return new Char(char, ["."]);
+        case "「": return new Char(char, ["["]);
+        case "」": return new Char(char, ["]"]);
         default: return null;
     }
 };

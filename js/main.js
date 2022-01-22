@@ -110,7 +110,7 @@ const hiraganaTextArray = [
     "なるべくおそくにきたくして",
     "ひえためしくって",
     "よるになるとおないどしのふりょうがやってきて",
-    "べやのまどがらすにきょくしょうのいしをなげつけると「ピシッ」っておとがするから",
+    "へやのまどがらすにきょくしょうのいしをなげつけると「ピシッ」っておとがするから",
     "そっといえをとびだしてあそびあるいてた。",
     "おかあさんさんのことゎ",
     "ずっとしんそこ、だいきらいだった",
@@ -134,6 +134,11 @@ const hiraganaTextArray = [
 const $typingText = $("#typing-text");
 const $typedRoman = $("#typed");
 const $notTypedRoman = $("#not-typed");
+const $okCount = $("#ok-count");
+const $ngCount = $("#ng-count");
+
+let okCount = 0;
+let ngCount = 0;
 
 let textIndex = 0;
 let currentText = new Text(hiraganaTextArray[textIndex]);
@@ -151,13 +156,16 @@ $(window).keydown(function(e) {
     switch (currentText.inputRoman(roman)) {
         case TEXT_NG:
             console.log("NG");
+            $ngCount.text(++ngCount);
             break;
         case TEXT_KEEP:
             console.log("KEEP");
+            $okCount.text(++okCount);
             updateExpectRoman(roman);
             break;
         case TEXT_COMPLETE:
             console.log("OK");
+            $okCount.text(++okCount);
             updateExpectRoman(roman);
             if (textIndex < hiraganaTextArray.length - 1) {
                 currentText = new Text(hiraganaTextArray[++textIndex]);
