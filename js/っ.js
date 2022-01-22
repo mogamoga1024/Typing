@@ -11,6 +11,9 @@ function っ() {
     if (this.nextChar === null) {
         return Char.prototype.remainExpectRoman.call(this);
     }
+    if (this.nextExpectRomanIndex > 0) {
+        return this.expectRomanArray[0];
+    }
     const nextCharFirstRoman = this.nextChar.remainExpectRoman()[0];
     if (nextCharFirstRoman.match(this.regex) === null) {
         return nextCharFirstRoman;
