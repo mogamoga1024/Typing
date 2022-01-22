@@ -1,7 +1,7 @@
 
 function っ() {
     Char.call(this, "っ", ["xtu", "ltu", "ltsu"]);
-    this.regex = /^(?=[a-z])(?!(a|i|u|e|o|n))$/;
+    this.regex = /^(?=[a-z])(?!(a|i|u|e|o|n)).$/;
 }
 
 っ.prototype = Object.create(Char.prototype);
@@ -15,7 +15,7 @@ function っ() {
         return this.expectRomanArray[0];
     }
     const nextCharFirstRoman = this.nextChar.expectRoman()[0];
-    if (nextCharFirstRoman.match(this.regex) === null) {
+    if (nextCharFirstRoman.match(this.regex) !== null) {
         return nextCharFirstRoman;
     }
     return Char.prototype.expectRoman.call(this);

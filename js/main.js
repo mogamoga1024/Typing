@@ -1,12 +1,10 @@
 
 // const textArray = [
-//     "っぴ",
-//     "んこんこ"
+//     "っあ", "った"
 // ];
 
 // const hiraganaTextArray = [
-//     "っぴ",
-//     "んこんこ"
+//     "っあ", "った"
 // ];
 
 // const textArray = [
@@ -140,7 +138,7 @@ const $ngCount = $("#ng-count");
 let okCount = 0;
 let ngCount = 0;
 
-let textIndex = 0;
+let textIndex = 28; // 28
 let currentText = new Text(hiraganaTextArray[textIndex]);
 
 $typingText.text(textArray[textIndex]);
