@@ -20,7 +20,7 @@ function ん() {
 ん.prototype.inputRoman = function(roman) {
     const result = Char.prototype.inputRoman.call(this, roman);
 
-    if (result !== CHAR_NG) {
+    if (result !== CHAR_NG || this.nextExpectRomanIndex == 0) {
         return result;
     }
 
