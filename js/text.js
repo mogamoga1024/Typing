@@ -38,27 +38,20 @@ Text.prototype.updateExpectRoman = function(param, preChar) {
     switch (typeof(param)) {
         case "number":
             const oldCharRemainExpectRomanLength = param;
-            if (preChar === undefined) {
-                const charRemainExpectRoman = this.char.remainExpectRoman();
-                if (oldCharRemainExpectRomanLength === charRemainExpectRoman.length) {
-                    this.remainExpectRoman = this.remainExpectRoman.slice(1);
-                }
-                else {
-                    const removeRomanCount = oldCharRemainExpectRomanLength - this.char.nextExpectRomanIndex + 1;
-                    this.remainExpectRoman = charRemainExpectRoman.slice(this.char.nextExpectRomanIndex) + this.remainExpectRoman.slice(removeRomanCount);
-                }
+            const targetChar = preChar === undefined ? this.char : preChar;
+            const charRemainExpectRoman = targetChar.remainExpectRoman();
+            
+            if (oldCharRemainExpectRomanLength === charRemainExpectRoman.length) {
+                this.remainExpectRoman = this.remainExpectRoman.slice(1);
+                return;
             }
-            else {
-                const charRemainExpectRoman = preChar.remainExpectRoman();
-                if (oldCharRemainExpectRomanLength === charRemainExpectRoman.length) {
-                    this.remainExpectRoman = this.remainExpectRoman.slice(1);
-                }
-                else {
-                    const removeRomanCount = oldCharRemainExpectRomanLength - preChar.nextExpectRomanIndex + 1;
-                    this.remainExpectRoman = this.remainExpectRoman.slice(removeRomanCount);
-                }
-            }
+
+            const removeRomanCount = oldCharRemainExpectRomanLength - targetChar.nextExpectRomanIndex + 1;
+            const tmpRemainExpectRoman = preChar === undefined ? charRemainExpectRoman.slice(this.char.nextExpectRomanIndex) : "";
+
+            this.remainExpectRoman = tmpRemainExpectRoman + this.remainExpectRoman.slice(removeRomanCount);
             break;
+
         case "object":
             const oldChar = param;
             let tmpRemainExpectRoman1 = "";
