@@ -6,22 +6,36 @@
 やじゅう
 */
 
+// const hiraganaTextArray = [
+//     "まずうちさぁ、おくじょうあんだけど、やいてかない？",
+//     "あーいいっすねー",
+//     "やじゅうのがんこう"
+// ];
+
 const textArray = [
-    "まずうちさぁ、おくじょうあんだけど、やいてかない？",
-    "あーいいっすねー",
-    "やじゅうのがんこう"
+    "あのイーハトーヴォのすきとほった風",
+    "夏でも底に冷たさをもつ青いそら",
+    "うつくしい森で飾られたモーリオ市",
+    "郊外のぎらぎらひかる草の波"
+];
+
+const hiraganaTextArray = [
+    "あのいーはとーヴぉのすきとほったかぜ",
+    "なつでもそこにつめたさをもつあおいそら",
+    "うつくしいもりでかざられたもーりおし",
+    "こうがいのぎらぎらひかるくさのなみ"
 ];
 
 const $typingText = $("#typing-text");
 const $typedRoman = $("#typed");
 const $notTypedRoman = $("#not-typed");
 
-//const textArray = ["んにゃんぴっぴ"];
-//const textArray = ["にゃん"];
-// const textArray = ["じゃり"];
+//const hiraganaTextArray = ["んにゃんぴっぴ"];
+//const hiraganaTextArray = ["にゃん"];
+// const hiraganaTextArray = ["じゃり"];
 
 let textIndex = 0;
-let currentText = new Text(textArray[textIndex]);
+let currentText = new Text(hiraganaTextArray[textIndex]);
 
 $typingText.text(textArray[textIndex]);
 setupExpectRoman();
@@ -44,8 +58,8 @@ $(window).keydown(function(e) {
         case TEXT_COMPLETE:
             console.log("OK");
             updateExpectRoman(roman);
-            if (textIndex < textArray.length - 1) {
-                currentText = new Text(textArray[++textIndex]);
+            if (textIndex < hiraganaTextArray.length - 1) {
+                currentText = new Text(hiraganaTextArray[++textIndex]);
                 $typingText.text(textArray[textIndex]);
                 setupExpectRoman();
             }
