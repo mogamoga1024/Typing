@@ -264,7 +264,7 @@ CharFactory.create = function(char) {
 
         // わ行
         case "わ": return new Char(char, ["wa"]);
-        case "を": return new Char(char, ["wa"]);
+        case "を": return new Char(char, ["wo"]);
         case "ん": return new ん();
 
         case "ゎ": return new Char(char, ["xwa", "lwa"]);
