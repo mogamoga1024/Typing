@@ -3,8 +3,16 @@ body {
     font-family: "メイリオ";
 }
 
+#typing-text {
+    font-size: 32px;
+}
+
+#typing-roman {
+    font-size: 24px;
+}
+
 #typed {
-    color: brown;
+    color: red;
 }
 
 #not-typed {

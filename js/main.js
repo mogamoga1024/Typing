@@ -6,11 +6,11 @@
 やじゅう
 */
 
-// const textArray = [
-//     "まずうちさぁ、おくじょうあんだけど、やいてかない？",
-//     "あーいいっすねー",
-//     "やじゅうのがんこう"
-// ];
+const textArray = [
+    "まずうちさぁ、おくじょうあんだけど、やいてかない？",
+    "あーいいっすねー",
+    "やじゅうのがんこう"
+];
 
 const $typingText = $("#typing-text");
 const $typedRoman = $("#typed");
@@ -18,7 +18,7 @@ const $notTypedRoman = $("#not-typed");
 
 //const textArray = ["んにゃんぴっぴ"];
 //const textArray = ["にゃん"];
-const textArray = ["じゃり"];
+// const textArray = ["じゃり"];
 
 let textIndex = 0;
 let currentText = new Text(textArray[textIndex]);
