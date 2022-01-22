@@ -54,6 +54,12 @@ Text.prototype.updateExpectRoman = function(param, preChar) {
 
         case "object":
             const oldChar = param;
+
+            if (oldChar.name === "ん") {
+                this.remainExpectRoman = this.remainExpectRoman.slice(1);
+                return;
+            } 
+
             let tmpRemainExpectRoman1 = "";
             const tmpRemainExpectRoman2 = this.remainExpectRoman.slice(
                 oldChar.expectRoman().length - oldChar.nextExpectRomanIndex

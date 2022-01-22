@@ -138,7 +138,7 @@ const $ngCount = $("#ng-count");
 let okCount = 0;
 let ngCount = 0;
 
-let textIndex = 28; // 28
+let textIndex = 44; // 28
 let currentText = new Text(hiraganaTextArray[textIndex]);
 
 $typingText.text(textArray[textIndex]);

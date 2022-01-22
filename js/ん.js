@@ -26,13 +26,15 @@ function ん() {
 ん.prototype.inputRoman = function(roman) {
     const result = Char.prototype.inputRoman.call(this, roman);
 
-    if (result !== CHAR_NG || this.nextExpectRomanIndex === 0) {
+    if (result !== CHAR_NG || this.nextExpectRomanIndex === 0 || this.nextChar === null) {
         return result;
     }
 
-    if (this.nextChar.inputRoman(roman) !== CHAR_NG) {
-        return CHAR_COMPLETE;
+    const nextResult = this.nextChar.inputRoman(roman);
+
+    switch (nextResult) {
+        case CHAR_NG: return CHAR_NG;
+        case CHAR_KEEP: return this.nextChar;
+        case CHAR_COMPLETE: return this.nextChar.nextChar === null ? CHAR_COMPLETE : this.nextChar.nextChar;
     }
-    
-    return CHAR_NG;
 };
