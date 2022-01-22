@@ -79,7 +79,7 @@ Text.prototype.updateExpectRoman = function(param, preChar) {
                 tmpChar = tmpChar.nextChar;
                 if (tmpChar.nextChar === oldChar.nextChar) break;
             }
-            this.expectRoman = tmpRemainExpectRoman1 + tmpRemainExpectRoman2;
+            this.remainExpectRoman = tmpRemainExpectRoman1 + tmpRemainExpectRoman2;
             return;
     }
 };

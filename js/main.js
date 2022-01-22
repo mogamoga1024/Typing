@@ -16,11 +16,11 @@
 // ];
 
 // const textArray = [
-//     "んじゃり"
+//     "きゃり"
 // ];
 
 // const hiraganaTextArray = [
-//     "んじゃり"
+//     "きゃり"
 // ];
 
 // const textArray = [
