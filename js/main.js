@@ -16,8 +16,8 @@ const $typingText = $("#typing-text");
 const $typedRoman = $("#typed");
 const $notTypedRoman = $("#not-typed");
 
-//const textArray = ["んにゃんぴっぴ"];
-const textArray = ["んぴ"];
+const textArray = ["んにゃんぴっぴ"];
+//const textArray = ["にゃん"];
 
 let textIndex = 0;
 let currentText = new Text(textArray[textIndex]);

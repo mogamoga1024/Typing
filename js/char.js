@@ -11,7 +11,7 @@ function Char(name, expectRomanArray) {
     }
 }
 
-Char.prototype.expectRoman = function() {
+Char.prototype.remainExpectRoman = function() {
     if (this.expectRomanArray.length > 0) {
         return this.expectRomanArray[0];
     }

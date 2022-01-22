@@ -5,7 +5,7 @@ function Text(text) {
 
     let tmpChar = this.char;
     while (tmpChar !== null) {
-        this.remainExpectRoman += tmpChar.expectRoman();
+        this.remainExpectRoman += tmpChar.remainExpectRoman();
         tmpChar = tmpChar.nextChar;
     }
 }
@@ -18,19 +18,36 @@ Text.prototype.inputRoman = function(roman) {
     switch (result) {
         case CHAR_NG: return TEXT_NG;
         case CHAR_KEEP:
-            this.updateExpectRoman(roman);
+            this.updateExpectRoman();
             return TEXT_KEEP;
         case CHAR_COMPLETE:
             this.char = this.char.nextChar;
-            this.updateExpectRoman(roman);
+            this.updateExpectRoman();
             return this.char === null ? TEXT_COMPLETE : TEXT_KEEP;
         default:
+            const oldChar = this.char;
             this.char = result;
-            this.updateExpectRoman(roman);
+            this.updateExpectRoman(oldChar);
             return TEXT_KEEP;
     }
 };
 
-Text.prototype.updateExpectRoman = function() {
-    this.remainExpectRoman = this.remainExpectRoman.slice(1);
+Text.prototype.updateExpectRoman = function(oldChar) {
+    if (oldChar === undefined) {
+        this.remainExpectRoman = this.remainExpectRoman.slice(1);
+    }
+    else {
+        let tmpRemainExpectRoman1 = "";
+        const tmpRemainExpectRoman2 = this.remainExpectRoman.slice(
+            oldChar.remainExpectRoman().length - oldChar.nextExpectRomanIndex
+        );
+        let tmpChar = this.char;
+        while (true) {
+            tmpRemainExpectRoman1 += tmpChar.remainExpectRoman();
+            if (tmpChar.nextChar !== oldChar.nextChar) break;
+            tmpChar = tmpChar.nextChar;
+            if (tmpChar.nextChar !== oldChar.nextChar) break;
+        }
+        this.remainExpectRoman = tmpRemainExpectRoman1 + tmpRemainExpectRoman2;
+    }
 };
