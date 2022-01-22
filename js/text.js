@@ -50,7 +50,7 @@ Text.prototype.updateExpectRoman = function(param, preChar) {
             const tmpRemainExpectRoman = preChar === undefined ? charRemainExpectRoman.slice(this.char.nextExpectRomanIndex) : "";
 
             this.remainExpectRoman = tmpRemainExpectRoman + this.remainExpectRoman.slice(removeRomanCount);
-            break;
+            return;
 
         case "object":
             const oldChar = param;
@@ -61,11 +61,11 @@ Text.prototype.updateExpectRoman = function(param, preChar) {
             let tmpChar = this.char;
             while (true) {
                 tmpRemainExpectRoman1 += tmpChar.remainExpectRoman();
-                if (tmpChar.nextChar !== oldChar.nextChar) break;
+                if (tmpChar.nextChar === oldChar.nextChar) break;
                 tmpChar = tmpChar.nextChar;
-                if (tmpChar.nextChar !== oldChar.nextChar) break;
+                if (tmpChar.nextChar === oldChar.nextChar) break;
             }
             this.remainExpectRoman = tmpRemainExpectRoman1 + tmpRemainExpectRoman2;
-            break;
+            return;
     }
 };
