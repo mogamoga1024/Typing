@@ -324,21 +324,21 @@ CharFactory.create = function(char) {
         case "Y": return new Char(char, ["Y"]);
         case "Z": return new Char(char, ["Z"]);
 
-        case "0": return new Char(char, ["0"]);
-        case "1": return new Char(char, ["1"]);
-        case "2": return new Char(char, ["2"]);
-        case "3": return new Char(char, ["3"]);
-        case "4": return new Char(char, ["4"]);
-        case "5": return new Char(char, ["5"]);
-        case "6": return new Char(char, ["6"]);
-        case "7": return new Char(char, ["7"]);
-        case "8": return new Char(char, ["8"]);
-        case "9": return new Char(char, ["9"]);
+        case "0", "０": return new Char(char, ["0"]);
+        case "1", "１": return new Char(char, ["1"]);
+        case "2", "２": return new Char(char, ["2"]);
+        case "3", "３": return new Char(char, ["3"]);
+        case "4", "４": return new Char(char, ["4"]);
+        case "5", "５": return new Char(char, ["5"]);
+        case "6", "６": return new Char(char, ["6"]);
+        case "7", "７": return new Char(char, ["7"]);
+        case "8", "８": return new Char(char, ["8"]);
+        case "9", "９": return new Char(char, ["9"]);
 
         // 記号
         case "ー": return new Char(char, ["-"]);
-        case "！": return new Char(char, ["!"]);
-        case "？": return new Char(char, ["?"]);
+        case "!", "！": return new Char(char, ["!"]);
+        case "?", "？": return new Char(char, ["?"]);
         case "'": return new Char(char, ["'"]);
         case "\"": return new Char(char, ["\""]);
         case "、": return new Char(char, [","]);
