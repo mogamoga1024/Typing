@@ -31,7 +31,7 @@ function っ() {
         return CHAR_NG;
     }
     
-    if (roman.match(this.regex) !== null) {
+    if (roman.match(this.regex) === null) {
         return CHAR_NG;
     }
 
