@@ -154,23 +154,20 @@ setupExpectRoman();
 
 $(window).keydown(function(e) {
     const roman = e.key;
-
-    console.log(roman);
-
     if (TypingManager.validRoman(roman) === false) return;
 
     switch (currentText.inputRoman(roman)) {
         case TEXT_NG:
-            console.log("NG");
+            console.log(roman, "NG");
             $ngCount.text(++ngCount);
             break;
         case TEXT_KEEP:
-            console.log("KEEP");
+            console.log(roman, "KEEP");
             $okCount.text(++okCount);
             updateExpectRoman(roman);
             break;
         case TEXT_COMPLETE:
-            console.log("OK");
+            console.log(roman, "OK");
             $okCount.text(++okCount);
             updateExpectRoman(roman);
             if (textIndex < hiraganaTextArray.length - 1) {
