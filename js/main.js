@@ -1,11 +1,19 @@
 
+// const textArray = [
+//     "っぴ",
+//     "んこんこ"
+// ];
+
+// const hiraganaTextArray = [
+//     "っぴ",
+//     "んこんこ"
+// ];
+
 const textArray = [
-    "っぴ",
     "んこんこ"
 ];
 
 const hiraganaTextArray = [
-    "っぴ",
     "んこんこ"
 ];
 

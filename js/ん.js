@@ -14,7 +14,10 @@ function ん() {
     if (nextCharFirstRoman === "n" || nextCharFirstRoman === "'") {
         return Char.prototype.remainExpectRoman.call(this);
     }
-    if (this.nextExpectRomanIndex > 1) {
+    if (
+        this.nextExpectRomanIndex > 1 ||
+        this.nextExpectRomanIndex === 1 && this.expectRomanArray[0][0] === "x"
+    ) {
         return this.expectRomanArray[0];
     }
     return "n";
