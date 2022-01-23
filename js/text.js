@@ -42,7 +42,13 @@ Text.prototype.updateExpectRoman = function(param, preChar) {
             const charExpectRoman = targetChar.expectRoman();
             
             if (oldCharExpectRomanLength === charExpectRoman.length) {
-                this.remainExpectRoman = this.remainExpectRoman.slice(1);
+                if (targetChar.name === "っ" && oldCharExpectRomanLength === 1) {
+                    const char = CharFactory.create(this.char.name);
+                    this.remainExpectRoman = this.char.expectRoman() + this.remainExpectRoman.slice(char.expectRoman().length + 1);
+                }
+                else {
+                    this.remainExpectRoman = this.remainExpectRoman.slice(1);
+                }
                 return;
             }
 
@@ -66,7 +72,7 @@ Text.prototype.updateExpectRoman = function(param, preChar) {
                     this.remainExpectRoman = tmpRemainExpectRoman1 + tmpRemainExpectRoman2;
                 }
                 return;
-            } 
+            }
 
             let tmpRemainExpectRoman1 = "";
             const tmpRemainExpectRoman2 = this.remainExpectRoman.slice(

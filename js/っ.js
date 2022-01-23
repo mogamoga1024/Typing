@@ -39,6 +39,8 @@ function っ() {
     if (nextChar.inputRoman(roman) === CHAR_NG) {
         return CHAR_NG;
     }
-    
+    this.nextChar = nextChar;
+    this.nextChar.nextExpectRomanIndex = 0;
+
     return CHAR_COMPLETE;
 };

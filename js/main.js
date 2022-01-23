@@ -1,10 +1,10 @@
 
 const textArray = [
-    "っじ"
+    "っじょ"
 ];
 
 const hiraganaTextArray = [
-    "っじ"
+    "っじょ"
 ];
 
 // const textArray = [
