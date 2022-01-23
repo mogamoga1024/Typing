@@ -23,7 +23,7 @@ function っ() {
 
 っ.prototype.inputRoman = function(roman) {
     const result = Char.prototype.inputRoman.call(this, roman);
-    if (result !== CHAR_NG) {
+    if (this.nextExpectRomanIndex > 0) {
         return result;
     }
 
