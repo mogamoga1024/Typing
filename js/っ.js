@@ -48,6 +48,10 @@ function っ() {
     }
     this.nextChar = nextChar;
     this.nextChar.nextExpectRomanIndex = 0;
+    if (this.nextChar.divisionCharChain !== null) {
+        this.nextChar.divisionCharChain.inputRoman(roman);
+        this.nextChar.divisionCharChain.nextExpectRomanIndex = 0;
+    }
 
     return CHAR_COMPLETE;
 };
