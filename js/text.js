@@ -25,7 +25,7 @@ Text.prototype.inputRoman = function(roman) {
             const preChar = this.char;
             this.char = this.char.nextChar;
             this.updateExpectRoman(oldCharExpectRomanLength, preChar);
-            return this.char === null ? TEXT_COMPLETE : TEXT_KEEP;
+            return this.remainExpectRoman === "" ? TEXT_COMPLETE : TEXT_KEEP;
         default:
             const oldChar = this.char;
             this.char = result;

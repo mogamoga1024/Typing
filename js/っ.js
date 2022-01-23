@@ -14,10 +14,14 @@ function っ() {
     if (this.nextExpectRomanIndex > 0) {
         return this.expectRomanArray[0];
     }
+    if (this.nextChar.name.match(/^[a-zA-Z]$/) !== null) {
+        return Char.prototype.expectRoman.call(this);
+    }
     const nextCharFirstRoman = this.nextChar.expectRoman()[0];
     if (nextCharFirstRoman.match(this.regex) !== null) {
         return nextCharFirstRoman;
     }
+
     return Char.prototype.expectRoman.call(this);
 };
 
@@ -32,6 +36,9 @@ function っ() {
     }
     
     if (roman.match(this.regex) === null) {
+        return CHAR_NG;
+    }
+    if (this.nextChar.name.match(/^[a-zA-Z]$/) !== null) {
         return CHAR_NG;
     }
 

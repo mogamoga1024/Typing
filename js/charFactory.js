@@ -3,7 +3,7 @@ const CharFactory = {};
 
 CharFactory.create = function(char) {
     switch (char) {
-        // あ行: 
+        // あ行 
         case "あ": case "ア": return new Char(char, ["a"]);
         case "い": case "イ": return new Char(char, ["i", "yi"]);
         case "う": case "ウ": return new Char(char, ["u", "wu", "whu"]);
@@ -26,7 +26,7 @@ CharFactory.create = function(char) {
         case "ぇ": case "ェ": return new Char(char, ["xe", "le", "xye", "lye"]);
         case "ぉ": case "ォ": return new Char(char, ["xo", "lo"]);
 
-        // か行: 
+        // か行 
         case "か": case "カ": return new Char(char, ["ka", "ca"]);
         case "き": case "キ": return new Char(char, ["ki"]);
         case "く": case "ク": return new Char(char, ["ku", "cu", "qu"]);
@@ -70,7 +70,7 @@ CharFactory.create = function(char) {
         case "ヵ": case "ヵ": return new Char(char, ["xka", "lka"]);
         case "ヶ": case "ヶ": return new Char(char, ["xke", "lke"]);
 
-        // さ行: 
+        // さ行 
         case "さ": case "サ": return new Char(char, ["sa"]);
         case "し": case "シ": return new Char(char, ["si", "ci", "shi"]);
         case "す": case "ス": return new Char(char, ["su"]);
@@ -101,7 +101,7 @@ CharFactory.create = function(char) {
         case "じぇ": case "ジェ": return new Char(char, ["zye", "je", "jye"]);
         case "じょ": case "ジョ": return new Char(char, ["zyo", "jo", "jyo"]);
 
-        // た行: 
+        // た行 
         case "た": case "タ": return new Char(char, ["ta"]);
         case "ち": case "チ": return new Char(char, ["ti", "chi"]);
         case "つ": case "ツ": return new Char(char, ["tu", "tsu"]);
@@ -157,7 +157,7 @@ CharFactory.create = function(char) {
 
         case "っ": case "ッ": return new っ();
 
-        // な行: 
+        // な行 
         case "な": case "ナ": return new Char(char, ["na"]);
         case "に": case "ニ": return new Char(char, ["ni"]);
         case "ぬ": case "ヌ": return new Char(char, ["nu"]);
@@ -170,7 +170,7 @@ CharFactory.create = function(char) {
         case "にぇ": case "ニェ": return new Char(char, ["nye"]);
         case "にょ": case "ニョ": return new Char(char, ["nyo"]);
 
-        // は行: 
+        // は行 
         case "は": case "ハ": return new Char(char, ["ha"]);
         case "ひ": case "ヒ": return new Char(char, ["hi"]);
         case "ふ": case "フ": return new Char(char, ["hu", "fu"]);
@@ -227,7 +227,7 @@ CharFactory.create = function(char) {
         case "ぴぇ": case "ピェ": return new Char(char, ["pye"]);
         case "ぴょ": case "ピョ": return new Char(char, ["pyo"]);
 
-        // ま行: 
+        // ま行 
         case "ま": case "マ": return new Char(char, ["ma"]);
         case "み": case "ミ": return new Char(char, ["mi"]);
         case "む": case "ム": return new Char(char, ["mu"]);
@@ -240,7 +240,7 @@ CharFactory.create = function(char) {
         case "みぇ": case "ミェ": return new Char(char, ["mye"]);
         case "みょ": case "ミョ": return new Char(char, ["myo"]);
 
-        // や行: 
+        // や行 
         case "や": case "ヤ": return new Char(char, ["ya"]);
         case "ゆ": case "ユ": return new Char(char, ["yu"]);
         case "よ": case "ヨ": return new Char(char, ["yo"]);
@@ -249,7 +249,7 @@ CharFactory.create = function(char) {
         case "ゅ": case "ュ": return new Char(char, ["xyu", "lyu"]);
         case "ょ": case "ョ": return new Char(char, ["xyo", "lyo"]);
 
-        // ら行: 
+        // ら行 
         case "ら": case "ラ": return new Char(char, ["ra"]);
         case "り": case "リ": return new Char(char, ["ri"]);
         case "る": case "ル": return new Char(char, ["ru"]);
@@ -262,7 +262,7 @@ CharFactory.create = function(char) {
         case "りぇ": case "リェ": return new Char(char, ["rye"]);
         case "りょ": case "リョ": return new Char(char, ["ryo"]);
 
-        // わ行: 
+        // わ行 
         case "わ": case "ワ": return new Char(char, ["wa"]);
         case "を": case "ヲ": return new Char(char, ["wo"]);
         case "ん": case "ン": return new ん();
