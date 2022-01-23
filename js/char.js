@@ -55,6 +55,7 @@ Char.prototype.inputDivisionCharRoman = function(roman) {
     const char = this.divisionCharChain;
     for (let i = 0; i < this.nextExpectRomanIndex; i++) {
         if (char.inputRoman(this.expectRomanArray[0][i]) === CHAR_NG) {
+            char.nextExpectRomanIndex = 0;
             return CHAR_NG;
         }
     }
