@@ -42,11 +42,9 @@ function っ() {
         return CHAR_NG;
     }
 
-    const nextChar = CharFactory.create(this.nextChar.name);
-    if (nextChar.inputRoman(roman) === CHAR_NG) {
+    if (this.nextChar.inputRoman(roman) === CHAR_NG) {
         return CHAR_NG;
     }
-    this.nextChar = nextChar;
     this.nextChar.nextExpectRomanIndex = 0;
     if (this.nextChar.divisionCharChain !== null) {
         this.nextChar.divisionCharChain.inputRoman(roman);
