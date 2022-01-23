@@ -11,7 +11,7 @@ function ん() {
         return Char.prototype.expectRoman.call(this);
     }
     const nextCharFirstRoman = this.nextChar.expectRoman()[0];
-    if (nextCharFirstRoman === "n" || nextCharFirstRoman === "'") {
+    if (nextCharFirstRoman.match(/^(n|'|a|i|u|e|o|y)$/) !== null) {
         return Char.prototype.expectRoman.call(this);
     }
     if (
@@ -30,9 +30,11 @@ function ん() {
         return result;
     }
 
-    const nextResult = this.nextChar.inputRoman(roman);
+    if (this.nextChar.expectRoman()[0].match(/^(a|i|u|e|o|y)$/) !== null) {
+        return CHAR_NG;
+    }
 
-    switch (nextResult) {
+    switch (this.nextChar.inputRoman(roman)) {
         case CHAR_NG: return CHAR_NG;
         case CHAR_KEEP: return this.nextChar;
         case CHAR_COMPLETE: return this.nextChar.nextChar === null ? CHAR_COMPLETE : this.nextChar.nextChar;
