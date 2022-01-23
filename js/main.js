@@ -183,55 +183,10 @@ const hiraganaTextArray = [
     "ケンタロス", "ポニータ", "モンジャラ", "ミニリュウ", "ワンリキー", "モルフォン", "カメール", "ウィンディ", "フリーザー", "オコリザル"
 ];
 
-const $typingText = $("#typing-text");
-const $typedRoman = $("#typed");
-const $notTypedRoman = $("#not-typed");
-const $okCount = $("#ok-count");
-const $ngCount = $("#ng-count");
-
-let okCount = 0;
-let ngCount = 0;
-
-let textIndex = 0;
-let currentText = new Text(hiraganaTextArray[textIndex]);
-
-$typingText.text(textArray[textIndex]);
-setupExpectRoman();
+const game = new TypingGame();
 
 $(window).keydown(function(e) {
-    const roman = e.key;
-    if (TypingManager.validRoman(roman) === false) return;
-
-    switch (currentText.inputRoman(roman)) {
-        case TEXT_NG:
-            console.log(roman, "NG");
-            $ngCount.text(++ngCount);
-            break;
-        case TEXT_KEEP:
-            console.log(roman, "KEEP");
-            $okCount.text(++okCount);
-            updateExpectRoman(roman);
-            break;
-        case TEXT_COMPLETE:
-            console.log(roman, "OK");
-            $okCount.text(++okCount);
-            updateExpectRoman(roman);
-            if (textIndex < hiraganaTextArray.length - 1) {
-                currentText = new Text(hiraganaTextArray[++textIndex]);
-                $typingText.text(textArray[textIndex]);
-                setupExpectRoman();
-            }
-            break;
-    }
+    game.inputRoman(e.key);
 });
 
-function setupExpectRoman() {
-    $typedRoman.text("");
-    $notTypedRoman.text(currentText.remainExpectRoman);
-}
-
-function updateExpectRoman(key) {
-    $typedRoman.text($typedRoman.text() + key);
-    $notTypedRoman.text(currentText.remainExpectRoman);
-}
 
