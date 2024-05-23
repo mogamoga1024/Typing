@@ -1,6 +1,6 @@
 
 function っ() {
-    Char.call(this, "っ", ["xtu", "ltu", "ltsu"]);
+    Char.call(this, "っ", ["xtu", "xtsu", "ltu", "ltsu"]);
     this.regex = /^(?=[a-z])(?!(a|i|u|e|o|n)).$/;
 }
 
